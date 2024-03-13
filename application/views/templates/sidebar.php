@@ -34,7 +34,8 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+          aria-controls="collapseTwo">
           <i class="fas fa-database"></i>
           <span>Data Master</span>
         </a>
@@ -51,7 +52,8 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#guru" aria-expanded="true" aria-controls="guru">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#guru" aria-expanded="true"
+          aria-controls="guru">
           <i class="fas fa-database"></i>
           <span>Data Gukar</span>
         </a>
@@ -64,28 +66,33 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tunjangan" aria-expanded="true" aria-controls="tunjangan">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tunjangan" aria-expanded="true"
+          aria-controls="tunjangan">
           <i class="fas fa-database"></i>
           <span>Data Tunjangan</span>
         </a>
         <div id="tunjangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
+            <h6 class="collapse-header">Data Karir</h6>
             <a class="collapse-item" href="<?= base_url('admin/DataGolongan') ?>">Daftar Golongan</a>
             <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Daftar Jabatan</a>
+            <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Daftar Ekstra</a>
+            <a class="collapse-item" href="<?= base_url('admin/DataWaliKelas') ?>">Daftar Wali Kelas</a>
           </div>
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+          aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-money-check"></i>
           <span>Traksaksi</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport & <br>Tunjangan & <br>Potongan</a>
+            <h6 class="collapse-header">Data Sensitif</h6>
+            <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport & <br>Tunjangan &
+              <br>Potongan</a>
             <a class="collapse-item" href="<?= base_url('admin/DataGaji') ?>">Data Gaji</a>
           </div>
         </div>
@@ -93,7 +100,8 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+          aria-controls="collapsePages">
           <i class="fas fa-book"></i>
           <span>Laporan</span>
         </a>
@@ -143,7 +151,8 @@
 
           <!-- Nav Item - User Information -->
           <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
               <img class="img-profile rounded-circle" src="<?= base_url('asset/img/undraw_profile.svg') ?>">
             </a>

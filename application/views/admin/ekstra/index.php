@@ -26,12 +26,8 @@
 
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <a href="<?= base_url('admin/DataJabatan/Create') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah
-        Jabatan</a>
-      <a href="<?= base_url('admin/DataJabatan/Import') ?>" class="btn btn-success ml-auto ml-3"><i
-          class="fas fa-file-import"></i>
-        Import
-        Jabatan</a>
+      <a href="<?= base_url('admin/DataEkstra/Create') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah
+        Ekstra</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -39,28 +35,28 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama Jabatan</th>
+              <th>Nama Ekstra</th>
               <th>Tunjangan </th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($jabatan as $no => $j) : ?>
+            <?php foreach ($ekstra as $no => $j) : ?>
             <tr>
               <td>
                 <?= ++$no ?>
               </td>
               <td>
-                <?= $j->nama_jabatan ?>
+                <?= $j->nama_ekstra ?>
               </td>
               <td>Rp.
-                <?= number_format($j->tunjangan_jabatan, 0, ',', '.') ?>
+                <?= number_format($j->tunjangan_ekstra, 0, ',', '.') ?>
               </td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <a class="btn btn-primary btn-sm" href="<?= base_url('admin/DataJabatan/Edit/' . $j->id) ?>"><i
+                  <a class="btn btn-primary btn-sm" href="<?= base_url('admin/DataEkstra/Edit/' . $j->id) ?>"><i
                       class="fas fa-edit"></i></a>
-                  <a class="btn btn-danger btn-sm" href="<?= base_url('admin/DataJabatan/Destroy/' . $j->id) ?>"><i
+                  <a class="btn btn-danger btn-sm" href="<?= base_url('admin/DataEkstra/Destroy/' . $j->id) ?>"><i
                       class="fas fa-trash"></i></a>
                 </div>
               </td>

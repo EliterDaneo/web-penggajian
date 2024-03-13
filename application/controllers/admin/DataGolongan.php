@@ -5,7 +5,7 @@ class DataGolongan extends CI_Controller
   public function _rules()
   {
     $this->form_validation->set_rules('nama_golongan', 'nama_golongan', 'required');
-    $this->form_validation->set_rules('tunjangan', 'tunjangan', 'required');
+    $this->form_validation->set_rules('tunjangan_golongan', 'tunjangan_golongan', 'required');
   }
 
   public function index()

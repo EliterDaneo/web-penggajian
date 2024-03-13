@@ -70,7 +70,7 @@
               class="btn btn-success ml-3"><i class="fas fa-print"></i> Lihat Data</a>
           <?php } else { ?>
             <button class="btn btn-success ml-3" type="button" data-toggle="modal" data-target="#gaji"><i
-                class="fas fa-print"></i> Lihat Data</button>
+                class="fas fa-print"></i> Cetak Gaji</button>
           <?php } ?>
 
         </div>
@@ -161,11 +161,11 @@
                     <?= number_format($t->tunjangan_jabatan, 0, ',', '.') ?>
                   </td>
                   <td>Rp.
-                    <?= number_format($t->tunjangan_jabatan, 0, ',', '.') ?>
+                    <?= number_format($t->tunjangan_walikelas, 0, ',', '.') ?>
                     <!-- //note error -->
                   </td>
                   <td>Rp.
-                    <?= number_format($t->tunjangan_jabatan, 0, ',', '.') ?>
+                    <?= number_format($t->tunjangan_ekstra, 0, ',', '.') ?>
                     <!-- error code -->
                   </td>
                   <td>Rp.
@@ -178,7 +178,7 @@
                     <?= number_format($t->jumlah_potongan, 0, ',', '.') ?>
                   </td>
                   <td><b>Rp.
-                      <?= number_format($t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_jabatan + $t->tunjangan_jabatan + $t->tunjangan_kehadiran + $t->total_tunjangan - $t->jumlah_potongan, 0, ',', '.') ?>
+                      <?= number_format($t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran + $t->total_tunjangan - $t->jumlah_potongan, 0, ',', '.') ?>
                     </b>
                   </td>
 

@@ -14,6 +14,7 @@ class DataGukar extends CI_Controller
     $this->form_validation->set_rules('alamat', 'alamat', 'required');
     $this->form_validation->set_rules('no_hp', 'no_hp', 'required');
     $this->form_validation->set_rules('role', 'role', 'required');
+    $this->form_validation->set_rules('no_rekening', 'no_rekening', 'required');
   }
   public function _ruless()
   {
@@ -73,19 +74,21 @@ class DataGukar extends CI_Controller
           $no_hp = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
           $role = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
           $foto = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
+          $no_rekening = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
 
           $data[] = array(
-            'nbm'                   => $nbm,
-            'nama_pegawai'          => $nama_pegawai,
-            'jabatan'               => $jabatan,
-            'golongan'              => $golongan,
-            'jabatan_wali_kelas'    => $jabatan_wali_kelas,
-            'jabatan_guru_ekstra'   => $jabatan_guru_ekstra,
-            'jenis_kelamin'         => $jenis_kelamin,
-            'alamat'                => $alamat,
-            'no_hp'                 => $no_hp,
-            'role'                  => $role,
-            'foto'                  => $foto,
+            'nbm' => $nbm,
+            'nama_pegawai' => $nama_pegawai,
+            'jabatan' => $jabatan,
+            'golongan' => $golongan,
+            'jabatan_wali_kelas' => $jabatan_wali_kelas,
+            'jabatan_guru_ekstra' => $jabatan_guru_ekstra,
+            'jenis_kelamin' => $jenis_kelamin,
+            'alamat' => $alamat,
+            'no_hp' => $no_hp,
+            'role' => $role,
+            'foto' => $foto,
+            'no_rekening' => $no_rekening,
           );
         }
       }
@@ -106,6 +109,8 @@ class DataGukar extends CI_Controller
       'title' => 'Halaman Tambah Gukar',
       'jabatan' => $this->AllModel->get_data_jabatan(),
       'golongan' => $this->AllModel->get_data_golongan(),
+      'ekstra' => $this->AllModel->get_data_ekstra(),
+      'walikelas' => $this->AllModel->get_data_walikelas(),
     ];
     $this->load->view('templates/header');
     $this->load->view('templates/sidebar');
@@ -129,6 +134,7 @@ class DataGukar extends CI_Controller
       $alamat = $this->input->post('alamat');
       $no_hp = $this->input->post('no_hp');
       $role = $this->input->post('role');
+      $no_rekening = $this->input->post('no_rekening');
       $foto = $_FILES['foto']['name'];
       if ($foto = '') {
       } else {
@@ -154,6 +160,7 @@ class DataGukar extends CI_Controller
         'no_hp' => $no_hp,
         'role' => $role,
         'foto' => $foto,
+        'no_rekening' => $no_rekening,
       );
 
       $this->AllModel->insert_data_gukar($data, 'tbl_pegawai');
@@ -170,6 +177,8 @@ class DataGukar extends CI_Controller
       'gukar' => $this->db->query("SELECT * FROM tbl_pegawai WHERE id = '$id'")->result(),
       'jabatan' => $this->AllModel->get_data_jabatan(),
       'golongan' => $this->AllModel->get_data_golongan(),
+      'ekstra' => $this->AllModel->get_data_ekstra(),
+      'walikelas' => $this->AllModel->get_data_walikelas(),
     ];
 
     $this->load->view('templates/header');
@@ -195,6 +204,7 @@ class DataGukar extends CI_Controller
       $alamat = $this->input->post('alamat');
       $no_hp = $this->input->post('no_hp');
       $role = $this->input->post('role');
+      $no_rekening = $this->input->post('no_rekening');
       $foto = $_FILES['foto']['name'];
       if ($foto) {
         $config['upload_path'] = './asset/img/photos';
@@ -219,6 +229,7 @@ class DataGukar extends CI_Controller
         'alamat' => $alamat,
         'no_hp' => $no_hp,
         'role' => $role,
+        'no_rekening' => $no_rekening,
       );
 
       $where = array(

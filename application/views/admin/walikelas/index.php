@@ -26,12 +26,8 @@
 
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <a href="<?= base_url('admin/DataGolongan/Create') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah
-        Golongan</a>
-      <a href="<?= base_url('admin/DataGolongan/Import') ?>" class="btn btn-success ml-auto ml-3"><i
-          class="fas fa-file-import"></i>
-        Import
-        Golongan</a>
+      <a href="<?= base_url('admin/DataWaliKelas/Create') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah
+        Wali Kelas</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -39,28 +35,28 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama Golongan</th>
+              <th>Nama Wali Kelas</th>
               <th>Tunjangan </th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($golongan as $no => $j): ?>
+            <?php foreach ($walikelas as $no => $j): ?>
               <tr>
                 <td>
                   <?= ++$no ?>
                 </td>
                 <td>
-                  <?= $j->nama_golongan ?>
+                  <?= $j->nama_walikelas ?>
                 </td>
                 <td>Rp.
-                  <?= number_format($j->tunjangan_golongan, 0, ',', '.') ?>
+                  <?= number_format($j->tunjangan_walikelas, 0, ',', '.') ?>
                 </td>
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic example">
-                    <a class="btn btn-primary btn-sm" href="<?= base_url('admin/DataGolongan/Edit/' . $j->id) ?>"><i
+                    <a class="btn btn-primary btn-sm" href="<?= base_url('admin/DataWaliKelas/Edit/' . $j->id) ?>"><i
                         class="fas fa-edit"></i></a>
-                    <a class="btn btn-danger btn-sm" href="<?= base_url('admin/DataGolongan/Destroy/' . $j->id) ?>"><i
+                    <a class="btn btn-danger btn-sm" href="<?= base_url('admin/DataWaliKelas/Destroy/' . $j->id) ?>"><i
                         class="fas fa-trash"></i></a>
                   </div>
                 </td>

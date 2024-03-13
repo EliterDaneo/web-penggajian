@@ -1,37 +1,37 @@
 <?php
-class DataJabatan extends CI_Controller
+class DataWaliKelas extends CI_Controller
 {
 
   public function _rules()
   {
-    $this->form_validation->set_rules('nama_jabatan', 'nama_jabatan', 'required');
-    $this->form_validation->set_rules('tunjangan_jabatan', 'tunjangan_jabatan', 'required');
+    $this->form_validation->set_rules('nama_walikelas', 'nama_walikelas', 'required');
+    $this->form_validation->set_rules('tunjangan_walikelas', 'tunjangan_walikelas', 'required');
   }
 
   public function index()
   {
     $data = [
-      'title' => 'Halaman Data Jabatan',
-      'jabatan' => $this->AllModel->get_data_jabatan()
+      'title' => 'Halaman Data walikelas',
+      'walikelas' => $this->AllModel->get_data_walikelas()
     ];
     $this->load->view('templates/header');
     $this->load->view('templates/sidebar');
-    $this->load->view('admin/jabatan/index', $data);
+    $this->load->view('admin/walikelas/index', $data);
     $this->load->view('templates/footer');
   }
 
   public function Import()
   {
     $data = [
-      'title' => 'Halaman Import Jabatan',
+      'title' => 'Halaman Import walikelas',
     ];
     $this->load->view('templates/header');
     $this->load->view('templates/sidebar');
-    $this->load->view('admin/jabatan/import', $data);
+    $this->load->view('admin/walikelas/import', $data);
     $this->load->view('templates/footer');
   }
 
-  public function ImportJabatan()
+  public function Importwalikelas()
   {
     if (isset($_FILES["file"]["name"])) {
       // upload
@@ -50,36 +50,36 @@ class DataJabatan extends CI_Controller
 
         for ($row = 3; $row <= $highestRow; $row++) {
 
-          $nama_jabatan = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-          $tunjangan_jabatan = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+          $nama_walikelas = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+          $tunjangan_walikelas = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
 
           $data[] = array(
-            'nama_jabatan' => $nama_jabatan,
-            'tunjangan_jabatan' => $tunjangan_jabatan,
+            'nama_walikelas' => $nama_walikelas,
+            'tunjangan_walikelas' => $tunjangan_walikelas,
           );
 
           // $this->db->insert_batch('tbl_pegawai_new', $data);
         }
       }
 
-      $this->AllModel->insert_batch_jabatan('tbl_jabatan', $data);
+      $this->AllModel->insert_batch_walikelas('tbl_walikelas', $data);
 
       $this->session->set_flashdata('success', 'Data Berhasil Diimport!');
-      redirect('admin/DataJabatan');
+      redirect('admin/DataWaliKelas');
     } else {
       $this->session->set_flashdata('error', 'Data Berhasil Diimport!');
-      redirect('admin/DataJabatan');
+      redirect('admin/DataWaliKelas');
     }
   }
 
   public function Create()
   {
     $data = [
-      'title' => 'Halaman Tambah Jabatan',
+      'title' => 'Halaman Tambah walikelas',
     ];
     $this->load->view('templates/header');
     $this->load->view('templates/sidebar');
-    $this->load->view('admin/jabatan/create', $data);
+    $this->load->view('admin/walikelas/create', $data);
     $this->load->view('templates/footer');
   }
 
@@ -89,17 +89,17 @@ class DataJabatan extends CI_Controller
     if ($this->form_validation->run() == FALSE) {
       $this->Create();
     } else {
-      $nama_jabatan = $this->input->post('nama_jabatan');
-      $tunjangan_jabatan = $this->input->post('tunjangan_jabatan');
+      $nama_walikelas = $this->input->post('nama_walikelas');
+      $tunjangan_walikelas = $this->input->post('tunjangan_walikelas');
 
       $data = array(
-        'nama_jabatan' => $nama_jabatan,
-        'tunjangan_jabatan' => $tunjangan_jabatan,
+        'nama_walikelas' => $nama_walikelas,
+        'tunjangan_walikelas' => $tunjangan_walikelas,
       );
 
-      $this->AllModel->insert_data_jabatan($data, 'tbl_jabatan');
+      $this->AllModel->insert_data_walikelas($data, 'tbl_walikelas');
       $this->session->set_flashdata('success', 'Data Berhasil Disimpan!');
-      redirect('admin/DataJabatan');
+      redirect('admin/DataWaliKelas');
     }
   }
 
@@ -109,13 +109,13 @@ class DataJabatan extends CI_Controller
     $data =
       [
         'id' => $id,
-        'title' => 'Halaman Update Data Jabatan',
-        'jabatan' => $this->db->query("SELECT * FROM tbl_jabatan WHERE id = '$id'")->result()
+        'title' => 'Halaman Update Data walikelas',
+        'walikelas' => $this->db->query("SELECT * FROM tbl_walikelas WHERE id = '$id'")->result()
       ];
 
     $this->load->view('templates/header');
     $this->load->view('templates/sidebar');
-    $this->load->view('admin/jabatan/edit', $data);
+    $this->load->view('admin/walikelas/edit', $data);
     $this->load->view('templates/footer');
   }
 
@@ -126,20 +126,20 @@ class DataJabatan extends CI_Controller
       $this->Edit();
     } else {
       $id = $this->input->post('id');
-      $nama_jabatan = $this->input->post('nama_jabatan');
-      $tunjangan_jabatan = $this->input->post('tunjangan_jabatan');
+      $nama_walikelas = $this->input->post('nama_walikelas');
+      $tunjangan_walikelas = $this->input->post('tunjangan_walikelas');
       $data = array(
-        'nama_jabatan' => $nama_jabatan,
-        'tunjangan_jabatan' => $tunjangan_jabatan,
+        'nama_walikelas' => $nama_walikelas,
+        'tunjangan_walikelas' => $tunjangan_walikelas,
       );
 
       $where = array(
         'id' => $id
       );
 
-      $this->AllModel->update_data_jabatan('tbl_jabatan', $data, $where);
+      $this->AllModel->update_data_walikelas('tbl_walikelas', $data, $where);
       $this->session->set_flashdata('success', 'Data Berhasil Diperbaharui!');
-      redirect('admin/DataJabatan');
+      redirect('admin/DataWaliKelas');
     }
   }
 
@@ -148,8 +148,8 @@ class DataJabatan extends CI_Controller
     $where = array(
       'id' => $id
     );
-    $this->AllModel->delete_data_jabatan($where, 'tbl_jabatan');
+    $this->AllModel->delete_data_walikelas($where, 'tbl_walikelas');
     $this->session->set_flashdata('error', 'Data Berhasil DiHapus!');
-    redirect('admin/DataJabatan');
+    redirect('admin/DataWaliKelas');
   }
 }

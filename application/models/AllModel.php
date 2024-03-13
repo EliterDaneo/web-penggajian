@@ -107,47 +107,63 @@ class AllModel extends CI_model
     $this->db->delete($table);
   }
 
-  //Potongan
-  public function get_data_potongan()
+  //Ekstra
+  public function get_data_ekstra()
   {
     $this->db->select('*');
-    $this->db->from('tbl_potongan');
-    $this->db->order_by('tbl_potongan.nama_pegawai', 'ASC');
+    $this->db->from('tbl_ekstra');
+    $this->db->order_by('tbl_ekstra.nama_ekstra', 'ASC');
     return $this->db->get()->result();
   }
 
-  public function insert_batch_potongan($table = null, $data = array())
-  {
-    $jumlah = count($data);
-    if ($jumlah > 0) {
-      $this->db->insert_batch($table, $data);
-    }
-  }
-
-  public function import_batch_potongan($table = null, $data = array())
+  public function insert_batch_ekstra($table = null, $data = array())
   {
     $this->db->insert_batch($table, $data);
   }
-  
-  //Tunjangan
-  public function get_data_tunjangan()
+
+  public function insert_data_ekstra($data, $table)
+  {
+    $this->db->insert($table, $data);
+  }
+
+  public function update_data_ekstra($table, $data, $where)
+  {
+    $this->db->update($table, $data, $where);
+  }
+
+  public function delete_data_ekstra($where, $table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
+  }
+
+  //Wali Kelas
+  public function get_data_walikelas()
   {
     $this->db->select('*');
-    $this->db->from('tbl_tunjangan');
-    $this->db->order_by('tbl_tunjangan.nama_pegawai', 'ASC');
+    $this->db->from('tbl_walikelas');
+    $this->db->order_by('tbl_walikelas.nama_walikelas', 'ASC');
     return $this->db->get()->result();
   }
 
-  public function insert_batch_tunjangan($table = null, $data = array())
-  {
-    $jumlah = count($data);
-    if ($jumlah > 0) {
-      $this->db->insert_batch($table, $data);
-    }
-  }
-
-  public function import_batch_tunjangan($table = null, $data = array())
+  public function insert_batch_walikelas($table = null, $data = array())
   {
     $this->db->insert_batch($table, $data);
+  }
+
+  public function insert_data_walikelas($data, $table)
+  {
+    $this->db->insert($table, $data);
+  }
+
+  public function update_data_walikelas($table, $data, $where)
+  {
+    $this->db->update($table, $data, $where);
+  }
+
+  public function delete_data_walikelas($where, $table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
   }
 }

@@ -1,37 +1,37 @@
 <?php
-class DataJabatan extends CI_Controller
+class DataEkstra extends CI_Controller
 {
 
   public function _rules()
   {
-    $this->form_validation->set_rules('nama_jabatan', 'nama_jabatan', 'required');
-    $this->form_validation->set_rules('tunjangan_jabatan', 'tunjangan_jabatan', 'required');
+    $this->form_validation->set_rules('nama_ekstra', 'nama_ekstra', 'required');
+    $this->form_validation->set_rules('tunjangan_ekstra', 'tunjangan', 'required');
   }
 
   public function index()
   {
     $data = [
-      'title' => 'Halaman Data Jabatan',
-      'jabatan' => $this->AllModel->get_data_jabatan()
+      'title' => 'Halaman Data Ekstra',
+      'ekstra' => $this->AllModel->get_data_ekstra()
     ];
     $this->load->view('templates/header');
     $this->load->view('templates/sidebar');
-    $this->load->view('admin/jabatan/index', $data);
+    $this->load->view('admin/ekstra/index', $data);
     $this->load->view('templates/footer');
   }
 
   public function Import()
   {
     $data = [
-      'title' => 'Halaman Import Jabatan',
+      'title' => 'Halaman Import Ekstra',
     ];
     $this->load->view('templates/header');
     $this->load->view('templates/sidebar');
-    $this->load->view('admin/jabatan/import', $data);
+    $this->load->view('admin/ekstra/import', $data);
     $this->load->view('templates/footer');
   }
 
-  public function ImportJabatan()
+  public function ImportEkstra()
   {
     if (isset($_FILES["file"]["name"])) {
       // upload
@@ -50,36 +50,36 @@ class DataJabatan extends CI_Controller
 
         for ($row = 3; $row <= $highestRow; $row++) {
 
-          $nama_jabatan = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-          $tunjangan_jabatan = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+          $nama_ekstra = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+          $tunjangan_ekstra = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
 
           $data[] = array(
-            'nama_jabatan' => $nama_jabatan,
-            'tunjangan_jabatan' => $tunjangan_jabatan,
+            'nama_ekstra' => $nama_ekstra,
+            'tunjangan_ekstra' => $tunjangan_ekstra,
           );
 
           // $this->db->insert_batch('tbl_pegawai_new', $data);
         }
       }
 
-      $this->AllModel->insert_batch_jabatan('tbl_jabatan', $data);
+      $this->AllModel->insert_batch_ekstra('tbl_ekstra', $data);
 
       $this->session->set_flashdata('success', 'Data Berhasil Diimport!');
-      redirect('admin/DataJabatan');
+      redirect('admin/DataEkstra');
     } else {
       $this->session->set_flashdata('error', 'Data Berhasil Diimport!');
-      redirect('admin/DataJabatan');
+      redirect('admin/DataEkstra');
     }
   }
 
   public function Create()
   {
     $data = [
-      'title' => 'Halaman Tambah Jabatan',
+      'title' => 'Halaman Tambah Ekstra',
     ];
     $this->load->view('templates/header');
     $this->load->view('templates/sidebar');
-    $this->load->view('admin/jabatan/create', $data);
+    $this->load->view('admin/ekstra/create', $data);
     $this->load->view('templates/footer');
   }
 
@@ -89,17 +89,17 @@ class DataJabatan extends CI_Controller
     if ($this->form_validation->run() == FALSE) {
       $this->Create();
     } else {
-      $nama_jabatan = $this->input->post('nama_jabatan');
-      $tunjangan_jabatan = $this->input->post('tunjangan_jabatan');
+      $nama_ekstra = $this->input->post('nama_ekstra');
+      $tunjangan_ekstra = $this->input->post('tunjangan_ekstra');
 
       $data = array(
-        'nama_jabatan' => $nama_jabatan,
-        'tunjangan_jabatan' => $tunjangan_jabatan,
+        'nama_ekstra' => $nama_ekstra,
+        'tunjangan_ekstra' => $tunjangan_ekstra,
       );
 
-      $this->AllModel->insert_data_jabatan($data, 'tbl_jabatan');
+      $this->AllModel->insert_data_ekstra($data, 'tbl_ekstra');
       $this->session->set_flashdata('success', 'Data Berhasil Disimpan!');
-      redirect('admin/DataJabatan');
+      redirect('admin/DataEkstra');
     }
   }
 
@@ -109,13 +109,13 @@ class DataJabatan extends CI_Controller
     $data =
       [
         'id' => $id,
-        'title' => 'Halaman Update Data Jabatan',
-        'jabatan' => $this->db->query("SELECT * FROM tbl_jabatan WHERE id = '$id'")->result()
+        'title' => 'Halaman Update Data Ekstra',
+        'ekstra' => $this->db->query("SELECT * FROM tbl_ekstra WHERE id = '$id'")->result()
       ];
 
     $this->load->view('templates/header');
     $this->load->view('templates/sidebar');
-    $this->load->view('admin/jabatan/edit', $data);
+    $this->load->view('admin/ekstra/edit', $data);
     $this->load->view('templates/footer');
   }
 
@@ -126,20 +126,20 @@ class DataJabatan extends CI_Controller
       $this->Edit();
     } else {
       $id = $this->input->post('id');
-      $nama_jabatan = $this->input->post('nama_jabatan');
-      $tunjangan_jabatan = $this->input->post('tunjangan_jabatan');
+      $nama_ekstra = $this->input->post('nama_ekstra');
+      $tunjangan_ekstra = $this->input->post('tunjangan_ekstra');
       $data = array(
-        'nama_jabatan' => $nama_jabatan,
-        'tunjangan_jabatan' => $tunjangan_jabatan,
+        'nama_ekstra' => $nama_ekstra,
+        'tunjangan_ekstra' => $tunjangan_ekstra,
       );
 
       $where = array(
         'id' => $id
       );
 
-      $this->AllModel->update_data_jabatan('tbl_jabatan', $data, $where);
+      $this->AllModel->update_data_ekstra('tbl_ekstra', $data, $where);
       $this->session->set_flashdata('success', 'Data Berhasil Diperbaharui!');
-      redirect('admin/DataJabatan');
+      redirect('admin/DataEkstra');
     }
   }
 
@@ -148,8 +148,8 @@ class DataJabatan extends CI_Controller
     $where = array(
       'id' => $id
     );
-    $this->AllModel->delete_data_jabatan($where, 'tbl_jabatan');
+    $this->AllModel->delete_data_ekstra($where, 'tbl_ekstra');
     $this->session->set_flashdata('error', 'Data Berhasil DiHapus!');
-    redirect('admin/DataJabatan');
+    redirect('admin/DataEkstra');
   }
 }
