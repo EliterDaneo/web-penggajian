@@ -107,13 +107,15 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Slip Gaji</a>
-            <a class="collapse-item" href="register.html">Laporan Transport</a>
-            <a class="collapse-item" href="forgot-password.html">Laporan Potongan</a>
+            <h6 class="collapse-header">Menu Laporan:</h6>
+            <a class="collapse-item" href="<?= base_url('admin/LaporanGaji') ?>">Data Transport & <br>Tunjangan &
+              <br>Potongan & Gaji</a>
+            <a class="collapse-item" href="<?= base_url('admin/LaporanGaji/SlipGaji') ?>">Slip Gaji</a>
           </div>
         </div>
       </li>
+
+      <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
@@ -122,6 +124,11 @@
           <span>Ubah Password</span></a>
       </li>
 
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
     </ul>
     <!-- End of Sidebar -->
 
