@@ -14,7 +14,7 @@ class DataJabatan extends CI_Controller
       'title' => 'Halaman Data Jabatan',
       'jabatan' => $this->AllModel->get_data_jabatan()
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/jabatan/index', $data);
     $this->load->view('templates/footer');
@@ -25,7 +25,7 @@ class DataJabatan extends CI_Controller
     $data = [
       'title' => 'Halaman Import Jabatan',
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/jabatan/import', $data);
     $this->load->view('templates/footer');
@@ -77,7 +77,7 @@ class DataJabatan extends CI_Controller
     $data = [
       'title' => 'Halaman Tambah Jabatan',
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/jabatan/create', $data);
     $this->load->view('templates/footer');
@@ -113,7 +113,7 @@ class DataJabatan extends CI_Controller
         'jabatan' => $this->db->query("SELECT * FROM tbl_jabatan WHERE id = '$id'")->result()
       ];
 
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/jabatan/edit', $data);
     $this->load->view('templates/footer');

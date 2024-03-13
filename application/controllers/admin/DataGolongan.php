@@ -14,7 +14,7 @@ class DataGolongan extends CI_Controller
       'title' => 'Halaman Data Golongan',
       'golongan' => $this->AllModel->get_data_golongan()
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/golongan/index', $data);
     $this->load->view('templates/footer');
@@ -25,7 +25,7 @@ class DataGolongan extends CI_Controller
     $data = [
       'title' => 'Halaman Import Golongan',
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/golongan/import', $data);
     $this->load->view('templates/footer');
@@ -77,7 +77,7 @@ class DataGolongan extends CI_Controller
     $data = [
       'title' => 'Halaman Tambah Golongan',
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/golongan/create', $data);
     $this->load->view('templates/footer');
@@ -113,7 +113,7 @@ class DataGolongan extends CI_Controller
         'golongan' => $this->db->query("SELECT * FROM tbl_golongan WHERE id = '$id'")->result()
       ];
 
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/golongan/edit', $data);
     $this->load->view('templates/footer');

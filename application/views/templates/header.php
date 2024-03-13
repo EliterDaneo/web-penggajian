@@ -9,7 +9,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SISTEM PENGGAJIAN SMK MUTU</title>
+  <title>
+    <?= $title ?>
+  </title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url('asset/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">

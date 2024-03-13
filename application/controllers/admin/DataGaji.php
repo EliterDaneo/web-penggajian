@@ -26,7 +26,7 @@ class DataGaji extends CI_Controller
       ORDER BY tbl_pegawai.nama_pegawai ASC ")->result()
     ];
     // , tbl_jabatan.nama_jabatan = tbl_pegawai.jabatan_wali_kelas, tbl_jabatan.nama_jabatan = tbl_pegawai.jabatan_guru_ekstra
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/gaji/index', $data);
     $this->load->view('templates/footer');

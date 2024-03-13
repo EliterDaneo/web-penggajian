@@ -14,7 +14,7 @@ class DataEkstra extends CI_Controller
       'title' => 'Halaman Data Ekstra',
       'ekstra' => $this->AllModel->get_data_ekstra()
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/ekstra/index', $data);
     $this->load->view('templates/footer');
@@ -25,7 +25,7 @@ class DataEkstra extends CI_Controller
     $data = [
       'title' => 'Halaman Import Ekstra',
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/ekstra/import', $data);
     $this->load->view('templates/footer');
@@ -77,7 +77,7 @@ class DataEkstra extends CI_Controller
     $data = [
       'title' => 'Halaman Tambah Ekstra',
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/ekstra/create', $data);
     $this->load->view('templates/footer');
@@ -113,7 +113,7 @@ class DataEkstra extends CI_Controller
         'ekstra' => $this->db->query("SELECT * FROM tbl_ekstra WHERE id = '$id'")->result()
       ];
 
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/ekstra/edit', $data);
     $this->load->view('templates/footer');

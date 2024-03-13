@@ -25,7 +25,7 @@ class DataTransport extends CI_Controller
 			INNER JOIN tbl_jabatan ON tbl_pegawai.jabatan = tbl_jabatan.nama_jabatan
 			WHERE tbl_transport.bulan='$bulantahun' ORDER BY tbl_pegawai.nama_pegawai ASC")->result();
 
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/absensi/index', $data);
     $this->load->view('templates/footer');
@@ -90,7 +90,7 @@ class DataTransport extends CI_Controller
       ORDER BY tbl_pegawai.nama_pegawai ASC
       ")->result()
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/absensi/inputTransport', $data);
     $this->load->view('templates/footer');

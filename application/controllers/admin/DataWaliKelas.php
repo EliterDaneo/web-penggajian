@@ -14,7 +14,7 @@ class DataWaliKelas extends CI_Controller
       'title' => 'Halaman Data walikelas',
       'walikelas' => $this->AllModel->get_data_walikelas()
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/walikelas/index', $data);
     $this->load->view('templates/footer');
@@ -25,7 +25,7 @@ class DataWaliKelas extends CI_Controller
     $data = [
       'title' => 'Halaman Import walikelas',
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/walikelas/import', $data);
     $this->load->view('templates/footer');
@@ -77,7 +77,7 @@ class DataWaliKelas extends CI_Controller
     $data = [
       'title' => 'Halaman Tambah walikelas',
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/walikelas/create', $data);
     $this->load->view('templates/footer');
@@ -113,7 +113,7 @@ class DataWaliKelas extends CI_Controller
         'walikelas' => $this->db->query("SELECT * FROM tbl_walikelas WHERE id = '$id'")->result()
       ];
 
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/walikelas/edit', $data);
     $this->load->view('templates/footer');

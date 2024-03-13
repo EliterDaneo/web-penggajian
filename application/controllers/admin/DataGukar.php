@@ -27,7 +27,7 @@ class DataGukar extends CI_Controller
       'title' => 'Halaman Data Guru dan Karyawan',
       'pegawai' => $this->AllModel->get_data_gukar()
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/gukar/index', $data);
     $this->load->view('templates/footer');
@@ -38,7 +38,7 @@ class DataGukar extends CI_Controller
     $data = [
       'title' => 'Halaman Import Gukar',
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/gukar/import', $data);
     $this->load->view('templates/footer');
@@ -112,7 +112,7 @@ class DataGukar extends CI_Controller
       'ekstra' => $this->AllModel->get_data_ekstra(),
       'walikelas' => $this->AllModel->get_data_walikelas(),
     ];
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/gukar/create', $data);
     $this->load->view('templates/footer');
@@ -181,7 +181,7 @@ class DataGukar extends CI_Controller
       'walikelas' => $this->AllModel->get_data_walikelas(),
     ];
 
-    $this->load->view('templates/header');
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
     $this->load->view('admin/gukar/edit', $data);
     $this->load->view('templates/footer');
