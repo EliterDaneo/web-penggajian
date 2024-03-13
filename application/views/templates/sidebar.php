@@ -85,9 +85,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataPotongan') ?>">Data Potongan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataTunjangan') ?>">Data Tunjangan</a>
+            <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport & <br>Tunjangan & <br>Potongan</a>
             <a class="collapse-item" href="<?= base_url('admin/DataGaji') ?>">Data Gaji</a>
           </div>
         </div>

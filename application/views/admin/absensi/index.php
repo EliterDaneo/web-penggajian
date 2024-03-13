@@ -6,13 +6,13 @@
     <?= $title ?>
   </h1>
 
-  <?php if ($this->session->flashdata('success')) : ?>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <?php echo $this->session->flashdata('success'); ?>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+  <?php if ($this->session->flashdata('success')): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <?php echo $this->session->flashdata('success'); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
   <?php endif; ?>
 
   <div class="card mb-3">
@@ -45,10 +45,10 @@
             <option value="" selected>-- Pilih Tahun --</option>
             <?php $tahun = date('Y');
             for ($t = 2024; $t < $tahun + 5; $t++) {
-            ?>
-            <option value="<?= $t ?>">
-              <?= $t ?>
-            </option>
+              ?>
+              <option value="<?= $t ?>">
+                <?= $t ?>
+              </option>
             <?php } ?>
           </select>
         </div>
@@ -92,53 +92,138 @@
     <?php
     $jumlah_data = count($transport);
     if ($jumlah_data > 0) {
-    ?>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>NBM</th>
-              <th>NAMA </th>
-              <th>JABATAN</th>
-              <th>JENIS KELAMIN</th>
-              <th>TRANSPORT</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php $no = 1;
-              foreach ($transport as  $t) : ?>
-            <tr>
-              <td>
-                <?= $no++ ?>
-              </td>
-              <td>
-                <?= $t->nbm ?>
-              </td>
-              <td>
-                <?= $t->nama_pegawai ?>
-              </td>
-              <td>
-                <?= $t->jabatan ?>
-              </td>
-              <td>
-                <?= $t->jenis_kelamin ?>
-              </td>
-              <td>Rp.
-                <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
-              </td>
-            </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
+      ?>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>NBM</th>
+                <th>NAMA </th>
+                <th>JABATAN</th>
+                <th>JENIS KELAMIN</th>
+                <th>TRANSPORT</th>
+                <th>BPJS</th>
+                <th>DPLK</th>
+                <th>A. BANK</th>
+                <th>A. KOPERASI GUKAR</th>
+                <th>S. KOPERASI GUKAR</th>
+                <th>B. KOPERASI GUKAR</th>
+                <th>I. ANGGOTA MUHAMMADIYAH</th>
+                <th>BON SEKOLAH</th>
+                <th>BON KOPERASI GUKAR</th>
+                <th>SOSIAL</th>
+                <th>A. BANK MINI</th>
+                <th>T. BINGKISAN</th>
+                <th>INFAQ BULANAN</th>
+                <th>INFAQ QURBAN</th>
+                <th>TABUNGAN KURBAN</th>
+                <th>TOTAL POTONGAN</th>
+                <th>TUNJANGAN ANAK</th>
+                <th>TUNJANGAN PANGAN</th>
+                <th>KELEBIAN JAM MENGAJAR</th>
+                <th>TOTAL TUNJANGAN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php $no = 1;
+              foreach ($transport as $t): ?>
+                <tr>
+                  <td>
+                    <?= $no++ ?>
+                  </td>
+                  <td>
+                    <?= $t->nbm ?>
+                  </td>
+                  <td>
+                    <?= $t->nama_pegawai ?>
+                  </td>
+                  <td>
+                    <?= $t->jabatan ?>
+                  </td>
+                  <td>
+                    <?= $t->jenis_kelamin ?>
+                  </td>
+                  <td><b>Rp.
+                      <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
+                    </b>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->bpjs_kesehatan, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->dplk, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->angsuran_bank, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->angsuran_koperasi_gukar, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->simpanan_koperasi_gukar, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->belanja_koperasi_gukar, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->iuran_anggota_muhammadiyah, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->bon_sekolah, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->bon_koperasi_gukar, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->sosial, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->angsuran_bank_mini, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->tabungan_bingkisan, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->infaq_bulanan, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->infaq_qurban, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->tabungan_kurban, 0, ',', '.') ?>
+                  </td>
+                  <td><b>
+                      Rp.
+                      <?php echo number_format($t->jumlah_potongan, 0, ',', '.') ?>
+                    </b>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->tunjangan_anak, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->tunjangan_pangan, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->kelebihan_jam_mengajar, 0, ',', '.') ?>
+                  </td>
+                  <td><b>
+                      Rp.
+                      <?php echo number_format($t->total_tunjangan, 0, ',', '.') ?>
+                    </b>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
     <?php } else { ?>
-    <div class="container mt-2">
-      <div class="alert alert-danger">Belum Ada Data Transport Bulan Ini, Silahkan Input Data Transport Pada Bulan Dan
-        Tahun Yang Dipilih</div>
-    </div>
+      <div class="container mt-2">
+        <div class="alert alert-danger">Belum Ada Data Transport Bulan Ini, Silahkan Input Data Transport Pada Bulan Dan
+          Tahun Yang Dipilih</div>
+      </div>
     <?php } ?>
   </div>
 </div>
