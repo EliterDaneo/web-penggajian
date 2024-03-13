@@ -1,0 +1,60 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+class DataGaji extends CI_Controller
+{
+  public function index()
+  {
+    if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+      $bulan = $_GET['bulan'];
+      $tahun = $_GET['tahun'];
+      $bulantahun = $bulan . $tahun;
+    } else {
+      $bulan = date('m');
+      $tahun = date('Y');
+      $bulantahun = $bulan . $tahun;
+    }
+    $data = [
+      'title' => 'Halaman Data Gaji',
+      'gaji' => $this->db->query("SELECT tbl_pegawai.nbm, tbl_pegawai.nama_pegawai, tbl_pegawai.jenis_kelamin, tbl_jabatan.nama_jabatan, tbl_jabatan.tunjangan_jabatan, tbl_golongan.nama_golongan, tbl_golongan.tunjangan_golongan, tbl_transport.tunjangan_kehadiran, tbl_potongan.jumlah_potongan, tbl_tunjangan.total_tunjangan
+      FROM tbl_pegawai
+      INNER JOIN tbl_transport ON tbl_transport.nbm = tbl_pegawai.nbm
+      INNER JOIN tbl_potongan ON tbl_potongan.nbm = tbl_pegawai.nbm
+      INNER JOIN tbl_tunjangan ON tbl_tunjangan.nbm = tbl_pegawai.nbm
+      INNER JOIN tbl_jabatan ON tbl_jabatan.nama_jabatan = tbl_pegawai.jabatan
+      INNER JOIN tbl_golongan ON tbl_golongan.nama_golongan = tbl_pegawai.golongan
+      WHERE tbl_transport.bulan = '$bulantahun'
+      ORDER BY tbl_pegawai.nama_pegawai ASC ")->result()
+    ];
+    // , tbl_jabatan.nama_jabatan = tbl_pegawai.jabatan_wali_kelas, tbl_jabatan.nama_jabatan = tbl_pegawai.jabatan_guru_ekstra
+    $this->load->view('templates/header');
+    $this->load->view('templates/sidebar');
+    $this->load->view('admin/gaji/index', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function CetakGaji()
+  {
+    if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+      $bulan = $_GET['bulan'];
+      $tahun = $_GET['tahun'];
+      $bulantahun = $bulan . $tahun;
+    } else {
+      $bulan = date('m');
+      $tahun = date('Y');
+      $bulantahun = $bulan . $tahun;
+    }
+    $data = [
+      'title' => 'Cetak Data Gaji Gukar',
+      'cetak_gaji' => $this->db->query("SELECT tbl_pegawai.nbm, tbl_pegawai.nama_pegawai, tbl_pegawai.jenis_kelamin, tbl_jabatan.nama_jabatan, tbl_jabatan.tunjangan_jabatan, tbl_golongan.nama_golongan, tbl_golongan.tunjangan_golongan, tbl_transport.tunjangan_kehadiran, tbl_potongan.jumlah_potongan, tbl_tunjangan.total_tunjangan, tbl_transport.bulan, tbl_potongan.bulan, tbl_jabatan.bulan
+      FROM tbl_pegawai
+      INNER JOIN tbl_transport ON tbl_transport.nbm = tbl_pegawai.nbm, tbl_transport.bulan = '$bulantahun'
+      INNER JOIN tbl_potongan ON tbl_potongan.nbm = tbl_pegawai.nbm, tbl_potongan.bulan = '$bulantahun'
+      INNER JOIN tbl_tunjangan ON tbl_tunjangan.nbm = tbl_pegawai.nbm, tbl_jabatan.bulan = '$bulantahun'
+      INNER JOIN tbl_jabatan ON tbl_jabatan.nama_jabatan = tbl_pegawai.jabatan
+      INNER JOIN tbl_golongan ON tbl_golongan.nama_golongan = tbl_pegawai.golongan
+      WHERE tbl_transport.bulan = '$bulantahun'
+      ORDER BY tbl_pegawai.nama_pegawai ASC ")->result()
+    ];
+    $this->load->view('admin/gaji/cetak', $data);
+  }
+}
