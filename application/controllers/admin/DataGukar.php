@@ -15,10 +15,8 @@ class DataGukar extends CI_Controller
     $this->form_validation->set_rules('no_hp', 'no_hp', 'required');
     $this->form_validation->set_rules('role', 'role', 'required');
     $this->form_validation->set_rules('no_rekening', 'no_rekening', 'required');
-  }
-  public function _ruless()
-  {
-    $this->form_validation->set_rules('keterangan', 'keterangan', 'required');
+    $this->form_validation->set_rules('email', 'email', 'required');
+    $this->form_validation->set_rules('password', 'password', 'required');
   }
 
   public function index()
@@ -75,6 +73,8 @@ class DataGukar extends CI_Controller
           $role = $worksheet->getCellByColumnAndRow(9, $row)->getValue();
           $foto = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
           $no_rekening = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
+          $email = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
+          $password = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
 
           $data[] = array(
             'nbm' => $nbm,
@@ -89,6 +89,8 @@ class DataGukar extends CI_Controller
             'role' => $role,
             'foto' => $foto,
             'no_rekening' => $no_rekening,
+            'email' => $email,
+            'password' => $password,
           );
         }
       }
@@ -135,6 +137,8 @@ class DataGukar extends CI_Controller
       $no_hp = $this->input->post('no_hp');
       $role = $this->input->post('role');
       $no_rekening = $this->input->post('no_rekening');
+      $email = $this->input->post('email');
+      $password = md5($this->input->post('password'));
       $foto = $_FILES['foto']['name'];
       if ($foto = '') {
       } else {
@@ -161,6 +165,8 @@ class DataGukar extends CI_Controller
         'role' => $role,
         'foto' => $foto,
         'no_rekening' => $no_rekening,
+        'email' => $email,
+        'password' => $password,
       );
 
       $this->AllModel->insert_data_gukar($data, 'tbl_pegawai');
@@ -205,6 +211,8 @@ class DataGukar extends CI_Controller
       $no_hp = $this->input->post('no_hp');
       $role = $this->input->post('role');
       $no_rekening = $this->input->post('no_rekening');
+      $email = $this->input->post('email');
+      $password = md5($this->input->post('password'));
       $foto = $_FILES['foto']['name'];
       if ($foto) {
         $config['upload_path'] = './asset/img/photos';
@@ -230,6 +238,8 @@ class DataGukar extends CI_Controller
         'no_hp' => $no_hp,
         'role' => $role,
         'no_rekening' => $no_rekening,
+        'email' => $email,
+        'password' => $password,
       );
 
       $where = array(

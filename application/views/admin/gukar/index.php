@@ -87,7 +87,17 @@
                   <?= $j->no_hp ?>
                 </td>
                 <td>
-                  <?= $j->role ?>
+                  <?php
+                  if ($j->role == 1) {
+                    echo "<span>Administrator</span>";
+                  } else if ($j->role == 2) {
+                    echo "<span>SDM</span>";
+                  } else if ($j->role == 3) {
+                    echo "<span>Bendahara</span>";
+                  } else {
+                    echo "<span>Gukar</span>";
+                  }
+                  ?>
                 </td>
                 <td>
                   <?= $j->no_rekening ?>

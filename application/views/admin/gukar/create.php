@@ -114,10 +114,10 @@
               <label for="">Role</label>
               <select name="role" id="" class="form-control">
                 <option value="" selected> >-- Pilih Role --< </option>
-                <option value="Admin">Administrator</option>
-                <option value="Gukar">Gukar</option>
-                <option value="Keuangan">Keungan</option>
-                <option value="SDM">SDM</option>
+                <option value="1">Administrator</option>
+                <option value="4">Gukar</option>
+                <option value="3">Keungan</option>
+                <option value="2">SDM</option>
               </select>
               <?= form_error('role', '<div class="text-small text-danger"></div>') ?>
             </div>
@@ -134,6 +134,20 @@
               <label for="">No Rekening</label>
               <input type="number" class="form-control" name="no_rekening" placeholder="Enter No Rekening...">
               <?= form_error('no_rekening', '<div class="text-small text-danger"></div>') ?>
+            </div>
+          </div>
+          <div class=" col-sm-6">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter No Email...">
+              <?= form_error('email', '<div class="text-small text-danger"></div>') ?>
+            </div>
+          </div>
+          <div class=" col-sm-6">
+            <div class="form-group">
+              <label>Password</label>
+              <input type="text" class="form-control" name="password" placeholder="Enter No Password...">
+              <?= form_error('password', '<div class="text-small text-danger"></div>') ?>
             </div>
           </div>
         </div>

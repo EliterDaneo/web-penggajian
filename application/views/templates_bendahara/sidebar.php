@@ -32,55 +32,6 @@
         Master Data
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-database"></i>
-          <span>Data Master</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="<?= base_url('admin/DataGukar') ?>">Daftar Gukar Master</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataGukarFix') ?>">Daftar Gukar Fix</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataGolongan') ?>">Golongan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Jabatan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Guru Extra</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#guru" aria-expanded="true"
-          aria-controls="guru">
-          <i class="fas fa-database"></i>
-          <span>Data Gukar</span>
-        </a>
-        <div id="guru" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="<?= base_url('admin/DataGukar') ?>">Daftar Gukar</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tunjangan" aria-expanded="true"
-          aria-controls="tunjangan">
-          <i class="fas fa-database"></i>
-          <span>Data Tunjangan</span>
-        </a>
-        <div id="tunjangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Data Karir</h6>
-            <a class="collapse-item" href="<?= base_url('admin/DataGolongan') ?>">Daftar Golongan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Daftar Jabatan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Daftar Ekstra</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataWaliKelas') ?>">Daftar Wali Kelas</a>
-          </div>
-      </li>
-
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
