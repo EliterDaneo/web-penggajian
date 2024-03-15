@@ -76,36 +76,42 @@
 
       <tr>
         <th>1</th>
+        <td>Tunjangan Kehadiran : </td>
         <th>Rp.
           <?= number_format($c->tunjangan_golongan, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>2</th>
+        <td>Tunjangan Jabatan : </td>
         <th>Rp.
           <?= number_format($c->tunjangan_jabatan, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>3</th>
+        <td>Tunjangan Wali Kelas : </td>
         <th>Rp.
           <?= number_format($c->tunjangan_walikelas, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>4</th>
+        <td>Tunjangan Guru Ekstra : </td>
         <th>Rp.
           <?= number_format($c->tunjangan_ekstra, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>5</th>
+        <td>Tunjangan Kehadiran : </td>
         <th>Rp.
           <?= number_format($c->tunjangan_kehadiran, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>6</th>
+        <td>Tunjangan Lainnya : </td>
         <th>Rp.
           <?= number_format($c->total_tunjangan, 0, ',', '.') ?>
         </th>
@@ -113,6 +119,7 @@
 
       <tr>
         <th>7</th>
+        <td>Total Potongan : </td>
         <th>Rp.
           <?= number_format($c->jumlah_potongan, 0, ',', '.') ?>
         </th>
@@ -120,6 +127,7 @@
 
       <tr>
         <th>8</th>
+        <td>Diterima : </td>
         <th>Rp.
           <?= number_format($c->tunjangan_golongan + $c->tunjangan_jabatan + $c->tunjangan_walikelas + $c->tunjangan_ekstra + $c->tunjangan_kehadiran + $c->total_tunjangan - $c->jumlah_potongan, 0, ',', '.') ?>
         </th>
