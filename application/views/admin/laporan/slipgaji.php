@@ -11,8 +11,8 @@
       Filter Bulan Dan Tahun
     </div>
     <div class="card-body">
-      <form class="form-inline" action="<?= base_url('admin/LaporanGaji/CetakSlipGaji') ?>"
-        method="post">
+      <form class="form-inline" action="<?= base_url('admin/LaporanGaji/CetakSlipGaji') ?>" method="post"
+        target="_blank">
         <div class="form-group mb-3 ml-3">
           <label for="bulan">Bulan : </label>
           <select class="form-control ml-3" name="bulan" id="bulan">
