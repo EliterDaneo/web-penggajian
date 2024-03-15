@@ -1,6 +1,15 @@
 <?php
 class LaporanGaji extends CI_Controller
 {
+  public function __construct()
+  {
+    parent::__construct();
+
+    if ($this->session->userdata('role') != 1) {
+      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!');
+      redirect('welcome');
+    }
+  }
   public function index()
   {
     $data = [
@@ -19,7 +28,7 @@ class LaporanGaji extends CI_Controller
       'title' => 'Halaman Data Absensi',
     ];
 
-    if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+    if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
       $bulan = $_GET['bulan'];
       $tahun = $_GET['tahun'];
       $bulantahun = $bulan . $tahun;
@@ -59,26 +68,23 @@ class LaporanGaji extends CI_Controller
     $bulan = $this->input->post('bulan');
 
     // Concatenate $tahun and $bulan to form $bulantahun
-    $bulantahun = $tahun . $bulan;
+    $bulantahun = $bulan . $tahun;
 
     // Initialize data array
     $data = [
       'title' => 'Halaman Slip Gaji',
-    ];
-
-    // Execute SQL query to fetch data
-    $data1['cetak_slip_gaji'] = $this->db->query("
-        SELECT tbl_pegawai.nbm, tbl_pegawai.nama_pegawai, tbl_pegawai.jenis_kelamin, tbl_jabatan.nama_jabatan, tbl_jabatan.tunjangan_jabatan, tbl_golongan.nama_golongan, tbl_golongan.tunjangan_golongan, tbl_transport.tunjangan_kehadiran, tbl_transport.jumlah_potongan, tbl_transport.total_tunjangan, tbl_ekstra.nama_ekstra, tbl_ekstra.tunjangan_ekstra, tbl_walikelas.tunjangan_walikelas, tbl_walikelas.tunjangan_walikelas, tbl_pegawai.jabatan_wali_kelas, tbl_pegawai.jabatan_guru_ekstra, tbl_pegawai.no_rekening
+      'cetak_slip_gaji' => $this->db->query("SELECT 
+        tbl_pegawai.nbm, tbl_pegawai.nama_pegawai, tbl_pegawai.jenis_kelamin, tbl_jabatan.nama_jabatan, tbl_jabatan.tunjangan_jabatan, tbl_golongan.nama_golongan, tbl_golongan.tunjangan_golongan, tbl_transport.tunjangan_kehadiran, tbl_transport.jumlah_potongan, tbl_transport.total_tunjangan, tbl_ekstra.nama_ekstra, tbl_ekstra.tunjangan_ekstra, tbl_walikelas.tunjangan_walikelas,tbl_walikelas.tunjangan_walikelas, tbl_pegawai.jabatan_wali_kelas, tbl_pegawai.jabatan_guru_ekstra, tbl_pegawai.no_rekening
         FROM tbl_pegawai
         INNER JOIN tbl_transport ON tbl_transport.nbm = tbl_pegawai.nbm
         INNER JOIN tbl_jabatan ON tbl_jabatan.nama_jabatan = tbl_pegawai.jabatan
         INNER JOIN tbl_golongan ON tbl_golongan.nama_golongan = tbl_pegawai.golongan
         INNER JOIN tbl_ekstra ON tbl_ekstra.nama_ekstra = tbl_pegawai.jabatan_guru_ekstra
         INNER JOIN tbl_walikelas ON tbl_walikelas.nama_walikelas = tbl_pegawai.jabatan_wali_kelas
-        WHERE tbl_transport.bulan = '$bulantahun' AND tbl_transport.nama_pegawai = '$nama_pegawai'
-    ")->result();
-    var_dump($data1);
-    die;
+        WHERE tbl_transport.bulan = '$bulantahun' AND tbl_transport.nama_pegawai = '$nama_pegawai' 
+    ")->result()
+    ];
+
     // Load the view with data
     $this->load->view('admin/laporan/cetak_slipgaji', $data);
   }

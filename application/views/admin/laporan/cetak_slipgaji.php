@@ -24,9 +24,9 @@
     <hr style="width: 100%; border-width: 3px; color: black">
   </center>
 
-  <?php if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+  <?php if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
     $bulan = $_GET['bulan'];
-    $tahun = $_GET['tahun'];
+    $cahun = $_GET['tahun'];
     $bulantahun = $bulan . $tahun;
   } else {
     $bulan = date('m');
@@ -76,58 +76,58 @@
 
       <tr>
         <th>1</th>
-        <th>
-          <?= number_format($t->tunjangan_golongan, 0, ',', '.') ?>
+        <th>Rp.
+          <?= number_format($c->tunjangan_golongan, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>2</th>
-        <th>
-          <?= number_format($t->tunjangan_jabatan, 0, ',', '.') ?>
+        <th>Rp.
+          <?= number_format($c->tunjangan_jabatan, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>3</th>
-        <th>
-          <?= number_format($t->tunjangan_walikelas, 0, ',', '.') ?>
+        <th>Rp.
+          <?= number_format($c->tunjangan_walikelas, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>4</th>
-        <th>
-          <?= number_format($t->tunjangan_ekstra, 0, ',', '.') ?>
+        <th>Rp.
+          <?= number_format($c->tunjangan_ekstra, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>5</th>
-        <th>
-          <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
+        <th>Rp.
+          <?= number_format($c->tunjangan_kehadiran, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>6</th>
-        <th>
-          <?= number_format($t->total_tunjangan, 0, ',', '.') ?>
+        <th>Rp.
+          <?= number_format($c->total_tunjangan, 0, ',', '.') ?>
         </th>
       </tr>
 
       <tr>
         <th>7</th>
-        <th>
-          <?= number_format($t->jumlah_potongan, 0, ',', '.') ?>
+        <th>Rp.
+          <?= number_format($c->jumlah_potongan, 0, ',', '.') ?>
         </th>
       </tr>
 
       <tr>
         <th>8</th>
-        <th>
-          <?= number_format($t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran + $t->total_tunjangan - $t->jumlah_potongan, 0, ',', '.') ?>
+        <th>Rp.
+          <?= number_format($c->tunjangan_golongan + $c->tunjangan_jabatan + $c->tunjangan_walikelas + $c->tunjangan_ekstra + $c->tunjangan_kehadiran + $c->total_tunjangan - $c->jumlah_potongan, 0, ',', '.') ?>
         </th>
       </tr>
       <tr>
         <th>9</th>
         <th>
-          <?= $t->no_rekening ?>
+          <?= $c->no_rekening ?>
         </th>
       </tr>
     </table>

@@ -2,6 +2,16 @@
 class DataEkstra extends CI_Controller
 {
 
+  public function __construct()
+  {
+    parent::__construct();
+
+    if ($this->session->userdata('role') != 1) {
+      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!');
+      redirect('welcome');
+    }
+  }
+
   public function _rules()
   {
     $this->form_validation->set_rules('nama_ekstra', 'nama_ekstra', 'required');

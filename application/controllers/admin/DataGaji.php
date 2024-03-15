@@ -2,6 +2,17 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class DataGaji extends CI_Controller
 {
+
+  public function __construct()
+  {
+    parent::__construct();
+
+    if ($this->session->userdata('role') != 1) {
+      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!');
+      redirect('welcome');
+    }
+  }
+
   public function index()
   {
     if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {

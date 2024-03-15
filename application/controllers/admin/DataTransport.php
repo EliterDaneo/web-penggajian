@@ -1,7 +1,18 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or exit ('No direct script access allowed');
 class DataTransport extends CI_Controller
 {
+
+  public function __construct()
+  {
+    parent::__construct();
+
+    if ($this->session->userdata('role') != 1) {
+      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!');
+      redirect('welcome');
+    }
+  }
+
   public function index()
   {
 
@@ -9,7 +20,7 @@ class DataTransport extends CI_Controller
       'title' => 'Halaman Data Absensi',
     ];
 
-    if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+    if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
       $bulan = $_GET['bulan'];
       $tahun = $_GET['tahun'];
       $bulantahun = $bulan . $tahun;
@@ -73,7 +84,7 @@ class DataTransport extends CI_Controller
       redirect('admin/DataTransport');
     }
 
-    if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+    if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
       $bulan = $_GET['bulan'];
       $tahun = $_GET['tahun'];
       $bulantahun = $bulan . $tahun;
@@ -98,7 +109,7 @@ class DataTransport extends CI_Controller
 
   public function ImportDataTransport()
   {
-    if (isset($_FILES["file"]["name"])) {
+    if (isset ($_FILES["file"]["name"])) {
       // upload
       $file_tmp = $_FILES['file']['tmp_name'];
       $file_name = $_FILES['file']['name'];
