@@ -73,11 +73,9 @@ class DataTransport extends CI_Controller
             'infaq_bulanan' => $post['infaq_bulanan'][$key],
             'infaq_qurban' => $post['infaq_qurban'][$key],
             'tabungan_kurban' => $post['tabungan_kurban'][$key],
-            'jumlah_potongan' => $post['jumlah_potongan'][$key],
             'tunjangan_anak' => $post['tunjangan_anak'][$key],
             'tunjangan_pangan' => $post['tunjangan_pangan'][$key],
             'kelebihan_jam_mengajar' => $post['kelebihan_jam_mengajar'][$key],
-            'total_tunjangan' => $post['total_tunjangan'][$key],
           );
         }
       }
@@ -150,11 +148,9 @@ class DataTransport extends CI_Controller
           $infaq_bulanan = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
           $infaq_qurban = $worksheet->getCellByColumnAndRow(19, $row)->getValue();
           $tabungan_kurban = $worksheet->getCellByColumnAndRow(20, $row)->getValue();
-          $jumlah_potongan = $worksheet->getCellByColumnAndRow(21, $row)->getValue();
-          $tunjangan_anak = $worksheet->getCellByColumnAndRow(22, $row)->getValue();
-          $tunjangan_pangan = $worksheet->getCellByColumnAndRow(23, $row)->getValue();
-          $kelebihan_jam_mengajar = $worksheet->getCellByColumnAndRow(24, $row)->getValue();
-          $total_tunjangan = $worksheet->getCellByColumnAndRow(25, $row)->getValue();
+          $tunjangan_anak = $worksheet->getCellByColumnAndRow(21, $row)->getValue();
+          $tunjangan_pangan = $worksheet->getCellByColumnAndRow(22, $row)->getValue();
+          $kelebihan_jam_mengajar = $worksheet->getCellByColumnAndRow(23, $row)->getValue();
 
           $data[] = array(
             'bulan' => $bulan,
@@ -178,11 +174,9 @@ class DataTransport extends CI_Controller
             'infaq_bulanan' => $infaq_bulanan,
             'infaq_qurban' => $infaq_qurban,
             'tabungan_kurban' => $tabungan_kurban,
-            'jumlah_potongan' => $jumlah_potongan,
             'tunjangan_anak' => $tunjangan_anak,
             'tunjangan_pangan' => $tunjangan_pangan,
             'kelebihan_jam_mengajar' => $kelebihan_jam_mengajar,
-            'total_tunjangan' => $total_tunjangan,
           );
         }
       }
