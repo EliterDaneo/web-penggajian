@@ -14,107 +14,247 @@
         <div class="sidebar-brand-text mx-3">PENGGAJIAN <sup>MUTU</sup></div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="<?= base_url('admin/DashboardController') ?>">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
+      <?php if ($this->session->userdata('role') == 1) { ?>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Master Data
-      </div>
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+          <a class="nav-link" href="<?= base_url('admin/DashboardController') ?>">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+        </li>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-database"></i>
-          <span>Data Master</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="<?= base_url('admin/DataGukar') ?>">Daftar Gukar Master</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataGukarFix') ?>">Daftar Gukar Fix</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataGolongan') ?>">Golongan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Jabatan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Guru Extra</a>
-          </div>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Master Data
         </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#guru" aria-expanded="true"
-          aria-controls="guru">
-          <i class="fas fa-database"></i>
-          <span>Data Gukar</span>
-        </a>
-        <div id="guru" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="<?= base_url('admin/DataGukar') ?>">Daftar Gukar</a>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo">
+            <i class="fas fa-database"></i>
+            <span>Data Master</span>
+          </a>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Custom Components:</h6>
+              <a class="collapse-item" href="<?= base_url('admin/DataGukar') ?>">Daftar Gukar Master</a>
+              <a class="collapse-item" href="<?= base_url('admin/DataGukarFix') ?>">Daftar Gukar Fix</a>
+              <a class="collapse-item" href="<?= base_url('admin/DataGolongan') ?>">Golongan</a>
+              <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Jabatan</a>
+              <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Guru Extra</a>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tunjangan" aria-expanded="true"
-          aria-controls="tunjangan">
-          <i class="fas fa-database"></i>
-          <span>Data Tunjangan</span>
-        </a>
-        <div id="tunjangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Data Karir</h6>
-            <a class="collapse-item" href="<?= base_url('admin/DataGolongan') ?>">Daftar Golongan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Daftar Jabatan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Daftar Ekstra</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataWaliKelas') ?>">Daftar Wali Kelas</a>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#guru" aria-expanded="true"
+            aria-controls="guru">
+            <i class="fas fa-database"></i>
+            <span>Data Gukar</span>
+          </a>
+          <div id="guru" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Custom Components:</h6>
+              <a class="collapse-item" href="<?= base_url('admin/DataGukar') ?>">Daftar Gukar</a>
+            </div>
           </div>
-      </li>
+        </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-          aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-money-check"></i>
-          <span>Traksaksi</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Data Sensitif</h6>
-            <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport & <br>Tunjangan &
-              <br>Potongan</a>
-            <a class="collapse-item" href="<?= base_url('admin/DataGaji') ?>">Data Gaji</a>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tunjangan" aria-expanded="true"
+            aria-controls="tunjangan">
+            <i class="fas fa-database"></i>
+            <span>Data Tunjangan</span>
+          </a>
+          <div id="tunjangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Data Karir</h6>
+              <a class="collapse-item" href="<?= base_url('admin/DataGolongan') ?>">Daftar Golongan</a>
+              <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Daftar Jabatan</a>
+              <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Daftar Ekstra</a>
+              <a class="collapse-item" href="<?= base_url('admin/DataWaliKelas') ?>">Daftar Wali Kelas</a>
+            </div>
+        </li>
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-money-check"></i>
+            <span>Traksaksi</span>
+          </a>
+          <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Data Sensitif</h6>
+              <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport & <br>Tunjangan &
+                <br>Potongan</a>
+              <a class="collapse-item" href="<?= base_url('admin/DataGaji') ?>">Data Gaji</a>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-          aria-controls="collapsePages">
-          <i class="fas fa-book"></i>
-          <span>Laporan</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Menu Laporan:</h6>
-            <a class="collapse-item" href="<?= base_url('admin/LaporanGaji') ?>">Data Transport & <br>Tunjangan &
-              <br>Potongan & Gaji</a>
-            <a class="collapse-item" href="<?= base_url('admin/LaporanGaji/SlipGaji') ?>">Slip Gaji</a>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+            aria-controls="collapsePages">
+            <i class="fas fa-book"></i>
+            <span>Laporan</span>
+          </a>
+          <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Menu Laporan:</h6>
+              <a class="collapse-item" href="<?= base_url('admin/LaporanGaji') ?>">Data Transport & <br>Tunjangan &
+                <br>Potongan & Gaji</a>
+              <a class="collapse-item" href="<?= base_url('admin/LaporanGaji/SlipGaji') ?>">Slip Gaji</a>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      <?php } else if ($this->session->userdata('role') == 2) { ?>
+          <!-- Divider -->
+          <hr class="sidebar-divider my-0">
 
+          <!-- Nav Item - Dashboard -->
+          <li class="nav-item active">
+            <a class="nav-link" href="<?= base_url('sdm/Dashboard') ?>">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Dashboard</span></a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+
+          <!-- Heading -->
+          <div class="sidebar-heading">
+            Master Data
+          </div>
+          <li class="nav-item <?= is_active('DataGukar') ?>">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#guru" aria-expanded="true"
+              aria-controls="guru">
+              <i class="fas fa-database"></i>
+              <span>Data Gukar</span>
+            </a>
+            <div id="guru" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item <?= is_active('DataGukar') ?>" href="<?= base_url('admin/DataGukar') ?>">Daftar
+                  Gukar</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tunjangan" aria-expanded="true"
+              aria-controls="tunjangan">
+              <i class="fas fa-database"></i>
+              <span>Data Tunjangan</span>
+            </a>
+            <div id="tunjangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data Karir</h6>
+                <a class="collapse-item" href="<?= base_url('admin/DataGolongan') ?>">Daftar Golongan</a>
+                <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Daftar Jabatan</a>
+                <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Daftar Ekstra</a>
+                <a class="collapse-item" href="<?= base_url('admin/DataWaliKelas') ?>">Daftar Wali Kelas</a>
+              </div>
+          </li>
+
+          <!-- Nav Item - Utilities Collapse Menu -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+              aria-expanded="true" aria-controls="collapseUtilities">
+              <i class="fas fa-money-check"></i>
+              <span>Traksaksi</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data Sensitif</h6>
+                <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport & <br>Tunjangan &
+                  <br>Potongan</a>
+                <a class="collapse-item" href="<?= base_url('admin/DataGaji') ?>">Data Gaji</a>
+              </div>
+            </div>
+          </li>
+      <?php } else if ($this->session->userdata('role') == 3) { ?>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+              <a class="nav-link" href="<?= base_url('bendahara/Dashboard') ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+              Master Data
+            </div>
+            <li class="nav-item">
+              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-money-check"></i>
+                <span>Traksaksi</span>
+              </a>
+              <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                  <h6 class="collapse-header">Data Sensitif</h6>
+                  <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport & <br>Tunjangan &
+                    <br>Potongan</a>
+                  <a class="collapse-item" href="<?= base_url('admin/DataGaji') ?>">Data Gaji</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                aria-controls="collapsePages">
+                <i class="fas fa-book"></i>
+                <span>Laporan</span>
+              </a>
+              <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                  <h6 class="collapse-header">Menu Laporan:</h6>
+                  <a class="collapse-item" href="<?= base_url('admin/LaporanGaji') ?>">Data Transport & <br>Tunjangan &
+                    <br>Potongan & Gaji</a>
+                  <a class="collapse-item" href="<?= base_url('admin/LaporanGaji/SlipGaji') ?>">Slip Gaji</a>
+                </div>
+              </div>
+            </li>
+      <?php } else { ?>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+              <a class="nav-link" href="<?= base_url('gukar/Dashboard') ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+              Master Data
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('gukar/DataGaji') ?>">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>Slip Gaji</span></a>
+            </li>
+      <?php } ?>
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Nav Item - Charts -->

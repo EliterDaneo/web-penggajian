@@ -24,8 +24,7 @@
     <hr style="width: 100%; border-width: 3px; color: black">
   </center>
 
-
-  <?php foreach ($cetak_slip_gaji as $c): ?>
+  <?php foreach ($gaji as $c): ?>
     <table>
       <tr>
         <td>Nama</td>
@@ -284,7 +283,7 @@
           </b></p>
         <td></td>
         <p class="mx-4"><b>
-            Nomor Rekening :
+            Nomor Pegawai :
             <?= $c->nama_pegawai ?>
           </b></p>
         <td></td>

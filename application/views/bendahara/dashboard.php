@@ -26,15 +26,54 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">
-                    <?php echo $this->session->userdata('nama_pegawai') ?>
-                  </h5>
-                  <p class="card-text">
-                    <?php echo $this->session->userdata('jabatan') ?>
-                  </p>
-                  <p class="card-text"><small class="text-muted">
-                      <?php echo $this->session->userdata('nbm') ?>
-                    </small></p>
+                  <?php foreach ($gukar as $d): ?>
+                    <div class="card-body">
+                      <table class="table">
+                        <tr>
+                          <td>Nama</td>
+                          <td>:</td>
+                          <td>
+                            <?= $d->nama_pegawai ?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>NBM</td>
+                          <td>:</td>
+                          <td>
+                            <?= $d->nbm ?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>GOLONGAN</td>
+                          <td>:</td>
+                          <td>
+                            <?= $d->golongan ?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>JABATAN</td>
+                          <td>:</td>
+                          <td>
+                            <?= $d->jabatan ?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>JABATAN WALI KELAS</td>
+                          <td>:</td>
+                          <td>
+                            <?= $d->jabatan_wali_kelas ?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>JABATAN GURU EKSTRA</td>
+                          <td>:</td>
+                          <td>
+                            <?= $d->jabatan_guru_ekstra ?>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  <?php endforeach; ?>
                 </div>
               </div>
             </div>

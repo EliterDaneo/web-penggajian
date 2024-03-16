@@ -65,7 +65,7 @@
   </div>
 
   <?php
-  if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+  if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
     $bulan = $_GET['bulan'];
     $tahun = $_GET['tahun'];
     $bulantahun = $bulan . $tahun;
@@ -103,7 +103,6 @@
                 <th>NAMA </th>
                 <th>JABATAN</th>
                 <th>JENIS KELAMIN</th>
-                <th>TRANSPORT</th>
                 <th>BPJS</th>
                 <th>DPLK</th>
                 <th>A. BANK</th>
@@ -119,11 +118,10 @@
                 <th>INFAQ BULANAN</th>
                 <th>INFAQ QURBAN</th>
                 <th>TABUNGAN KURBAN</th>
-                <th>TOTAL POTONGAN</th>
                 <th>TUNJANGAN ANAK</th>
                 <th>TUNJANGAN PANGAN</th>
                 <th>KELEBIAN JAM MENGAJAR</th>
-                <th>TOTAL TUNJANGAN</th>
+                <th>TJ. TRANSPORT</th>
               </tr>
             </thead>
             <tbody>
@@ -140,14 +138,10 @@
                     <?= $t->nama_pegawai ?>
                   </td>
                   <td>
-                    <?= $t->jabatan ?>
+                    <?= $t->nama_jabatan ?>
                   </td>
                   <td>
                     <?= $t->jenis_kelamin ?>
-                  </td>
-                  <td><b>Rp.
-                      <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
-                    </b>
                   </td>
                   <td>Rp.
                     <?php echo number_format($t->bpjs_kesehatan, 0, ',', '.') ?>
@@ -194,11 +188,6 @@
                   <td>Rp.
                     <?php echo number_format($t->tabungan_kurban, 0, ',', '.') ?>
                   </td>
-                  <td><b>
-                      Rp.
-                      <?php echo number_format($t->jumlah_potongan, 0, ',', '.') ?>
-                    </b>
-                  </td>
                   <td>Rp.
                     <?php echo number_format($t->tunjangan_anak, 0, ',', '.') ?>
                   </td>
@@ -208,9 +197,8 @@
                   <td>Rp.
                     <?php echo number_format($t->kelebihan_jam_mengajar, 0, ',', '.') ?>
                   </td>
-                  <td><b>
-                      Rp.
-                      <?php echo number_format($t->total_tunjangan, 0, ',', '.') ?>
+                  <td><b>Rp.
+                      <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
                     </b>
                   </td>
                 </tr>

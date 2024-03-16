@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or exit ('No direct script access allowed');
 class Dashboard extends CI_Controller
 {
   public function __construct()
@@ -14,12 +14,15 @@ class Dashboard extends CI_Controller
 
   public function index()
   {
+    $id = $this->session->userdata('id');
     $data = [
       'title' => 'Halaman Dashboard',
+      'gukar' => $this->db->query("SELECT * FROM tbl_pegawai WHERE id = '$id'")->result()
     ];
-    $this->load->view('templates_gukar/header', $data);
-    $this->load->view('templates_gukar/sidebar');
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
     $this->load->view('gukar/dashboard', $data);
-    $this->load->view('templates_gukar/footer');
+    $this->load->view('templates/footer');
   }
 }

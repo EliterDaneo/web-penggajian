@@ -6,11 +6,14 @@ class DataWaliKelas extends CI_Controller
   {
     parent::__construct();
 
-    if ($this->session->userdata('role') != 1) {
-      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!');
-      redirect('welcome');
+    $role = $this->session->userdata('role');
+
+    if ($role != 1 && $role != 2) { // Check if user role is not 1 or 2
+      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!'); // Set flashdata error message
+      redirect('welcome'); // Redirect to welcome page
     }
   }
+
 
   public function _rules()
   {
@@ -43,7 +46,7 @@ class DataWaliKelas extends CI_Controller
 
   public function Importwalikelas()
   {
-    if (isset($_FILES["file"]["name"])) {
+    if (isset ($_FILES["file"]["name"])) {
       // upload
       $file_tmp = $_FILES['file']['tmp_name'];
       $file_name = $_FILES['file']['name'];

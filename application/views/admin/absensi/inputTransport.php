@@ -53,7 +53,7 @@
   </div>
 
   <?php
-  if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+  if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
     $bulan = $_GET['bulan'];
     $tahun = $_GET['tahun'];
     $bulantahun = $bulan . $tahun;
@@ -95,7 +95,6 @@
                 <th>NAMA </th>
                 <th>JABATAN</th>
                 <th>JENIS KELAMIN</th>
-                <th>TRANSPORT</th>
                 <th>BPJS</th>
                 <th>DPLK</th>
                 <th>A. BANK</th>
@@ -111,11 +110,10 @@
                 <th>INFAQ BULANAN</th>
                 <th>INFAQ QURBAN</th>
                 <th>TABUNGAN KURBAN</th>
-                <th>TOTAL POTONGAN</th>
                 <th>TUNJANGAN ANAK</th>
                 <th>TUNJANGAN PANGAN</th>
                 <th>KELEBIHAN JAM MENGAJAR</th>
-                <th>TOTAL TUNJANGAN</th>
+                <th>TUNJANGAN TRANSPORT</th>
               </tr>
             </thead>
             <tbody>
@@ -143,9 +141,6 @@
                   </td>
                   <td>
                     <?= $t->jenis_kelamin ?>
-                  </td>
-                  <td>
-                    <input type="number" name="tunjangan_kehadiran[]" class="form-control" value="0">
                   </td>
                   <td>
                     <input type="number" name="bpjs_kesehatan[]" class="form-control" value="0">
@@ -193,9 +188,6 @@
                     <input type="number" name="tabungan_kurban[]" class="form-control" value="0">
                   </td>
                   <td>
-                    <input type="number" name="jumlah_potongan[]" class="form-control" value="0">
-                  </td>
-                  <td>
                     <input type="number" name="tunjangan_anak[]" class="form-control" value="0">
                   </td>
                   <td>
@@ -205,7 +197,7 @@
                     <input type="number" name="kelebihan_jam_mengajar[]" class="form-control" value="0">
                   </td>
                   <td>
-                    <input type="number" name="total_tunjangan[]" class="form-control" value="0">
+                    <input type="number" name="tunjangan_kehadiran[]" class="form-control" value="0">
                   </td>
                 </tr>
               <?php endforeach; ?>

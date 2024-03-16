@@ -24,10 +24,11 @@
 <body>
   <center>
     <h1>SMK MUTU WONOSOBO</h1>
-    <h2>Data Gaji Guru Karyawan</h2>
+    <h2>LAPORAN GAJI</h2>
+    <h2>Data Laporan Gaji Guru Karyawan</h2>
   </center>
 
-  <?php if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+  <?php if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
     $bulan = $_GET['bulan'];
     $tahun = $_GET['tahun'];
     $bulantahun = $bulan . $tahun;
@@ -62,7 +63,10 @@
         <th>NAMA </th>
         <th>JABATAN</th>
         <th>JENIS KELAMIN</th>
-        <th>TRANSPORT</th>
+        <th>TJ. GOLONGAN</th>
+        <th>TJ. JABATAN</th>
+        <th>TJ. JABATAN WALI KELAS</th>
+        <th>TJ. JABATAN GURU EKSTRA</th>
         <th>BPJS</th>
         <th>DPLK</th>
         <th>A. BANK</th>
@@ -78,11 +82,13 @@
         <th>INFAQ BULANAN</th>
         <th>INFAQ QURBAN</th>
         <th>TABUNGAN KURBAN</th>
-        <th>TOTAL POTONGAN</th>
         <th>TUNJANGAN ANAK</th>
         <th>TUNJANGAN PANGAN</th>
         <th>KELEBIAN JAM MENGAJAR</th>
+        <th>TUNJANGAN TRANSPORT</th>
         <th>TOTAL TUNJANGAN</th>
+        <th>TOTAL POTONGAN</th>
+        <th>TOTAL DITERIMA</th>
       </tr>
     </thead>
     <tbody>
@@ -99,14 +105,24 @@
             <?= $t->nama_pegawai ?>
           </td>
           <td>
-            <?= $t->jabatan ?>
+            <?= $t->nama_jabatan ?>
           </td>
           <td>
             <?= $t->jenis_kelamin ?>
           </td>
-          <td><b>Rp.
-              <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
-            </b>
+          <td>Rp.
+            <?= number_format($t->tunjangan_golongan, 0, ',', '.') ?>
+          </td>
+          <td>Rp.
+            <?= number_format($t->tunjangan_jabatan, 0, ',', '.') ?>
+          </td>
+          <td>Rp.
+            <?= number_format($t->tunjangan_walikelas, 0, ',', '.') ?>
+            <!-- //note error -->
+          </td>
+          <td>Rp.
+            <?= number_format($t->tunjangan_ekstra, 0, ',', '.') ?>
+            <!-- error code -->
           </td>
           <td>Rp.
             <?php echo number_format($t->bpjs_kesehatan, 0, ',', '.') ?>
@@ -153,11 +169,6 @@
           <td>Rp.
             <?php echo number_format($t->tabungan_kurban, 0, ',', '.') ?>
           </td>
-          <td><b>
-              Rp.
-              <?php echo number_format($t->jumlah_potongan, 0, ',', '.') ?>
-            </b>
-          </td>
           <td>Rp.
             <?php echo number_format($t->tunjangan_anak, 0, ',', '.') ?>
           </td>
@@ -167,9 +178,22 @@
           <td>Rp.
             <?php echo number_format($t->kelebihan_jam_mengajar, 0, ',', '.') ?>
           </td>
+          <td><b>Rp.
+              <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
+            </b>
+          </td>
           <td><b>
               Rp.
-              <?php echo number_format($t->total_tunjangan, 0, ',', '.') ?>
+              <?php echo number_format($t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran + $t->tunjangan_anak + $t->tunjangan_pangan + $t->kelebihan_jam_mengajar, 0, ',', '.') ?>
+            </b>
+          </td>
+          <td><b>
+              Rp.
+              <?php echo number_format($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban, 0, ',', '.') ?>
+            </b>
+          </td>
+          <td><b>Rp.
+              <?= number_format(($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran) - ($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban), 0, ',', '.') ?>
             </b>
           </td>
         </tr>

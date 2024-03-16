@@ -6,11 +6,14 @@ class DataGukar extends CI_Controller
   {
     parent::__construct();
 
-    if ($this->session->userdata('role') != '1') {
-      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!');
-      redirect('welcome');
+    $role = $this->session->userdata('role');
+
+    if ($role != 1 && $role != 2) { // Check if user role is not 1 or 2
+      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!'); // Set flashdata error message
+      redirect('welcome'); // Redirect to welcome page
     }
   }
+
   public function _rules()
   {
     $this->form_validation->set_rules('nbm', 'nbm', 'required');

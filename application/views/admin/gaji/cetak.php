@@ -23,7 +23,7 @@
     <h2>Data Gaji Guru Karyawan</h2>
   </center>
 
-  <?php if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+  <?php if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
     $bulan = $_GET['bulan'];
     $tahun = $_GET['tahun'];
     $bulantahun = $bulan . $tahun;
@@ -63,7 +63,6 @@
         <th>TJ. JABATAN</th>
         <th>TJ. JABATAN WALI KELAS</th>
         <th>TJ. JABATAN GURU EKSTRA</th>
-        <th>TJ. KEHADIRAN</th>
         <th>TJ. LAINNYA</th>
         <th>POTONGAN</th>
         <th>TOTAL TERIMA</th>
@@ -107,16 +106,13 @@
             <!-- error code -->
           </td>
           <td>Rp.
-            <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
+            <?= number_format($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran, 0, ',', '.') ?>
           </td>
           <td>Rp.
-            <?= number_format($t->total_tunjangan, 0, ',', '.') ?>
-          </td>
-          <td>Rp.
-            <?= number_format($t->jumlah_potongan, 0, ',', '.') ?>
+            <?= number_format($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban, 0, ',', '.') ?>
           </td>
           <td><b>Rp.
-              <?= number_format($t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran + $t->total_tunjangan - $t->jumlah_potongan, 0, ',', '.') ?>
+              <?= number_format(($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran) - ($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban), 0, ',', '.') ?>
             </b>
           </td>
           <td>
