@@ -68,9 +68,13 @@
           <?php if (count($gaji) > 0) { ?>
             <a target="_blank" href="<?= base_url('admin/DataGaji/CetakGaji?bulan=' . $bulan), '$tahun=' . $tahun ?>"
               class="btn btn-success ml-3"><i class="fas fa-print"></i> Cetak Gaji</a>
+            <a target="_blank" href="<?= base_url('admin/DataGaji/ExportExcel?bulan=' . $bulan . '&tahun=' . $tahun) ?>"
+              class="btn btn-info ml-3"><i class="fas fa-file-excel"></i> Export Excel</a>
           <?php } else { ?>
             <button class="btn btn-success ml-3" type="button" data-toggle="modal" data-target="#gaji"><i
                 class="fas fa-print"></i> Cetak Gaji</button>
+            <button class="btn btn-info ml-3" type="button" data-toggle="modal" data-target="#gaji"><i 
+                class="fas fa-file-excel"></i> Export Excel</button>
           <?php } ?>
 
         </div>
