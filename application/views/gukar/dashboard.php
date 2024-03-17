@@ -91,11 +91,11 @@
         <div class="card-body">
           <form>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Password Lama</label>
+              <label for="exampleInputEmail1" class="form-label">Password Baru</label>
               <input type="email" class="form-control" name="" id="exampleInputEmail1">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password Baru</label>
+              <label for="exampleInputPassword1" class="form-label">Ulangi Password</label>
               <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

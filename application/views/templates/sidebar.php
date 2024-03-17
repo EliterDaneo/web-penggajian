@@ -177,7 +177,6 @@
                 <h6 class="collapse-header">Data Sensitif</h6>
                 <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport & <br>Tunjangan &
                   <br>Potongan</a>
-                <a class="collapse-item" href="<?= base_url('admin/DataGaji') ?>">Data Gaji</a>
               </div>
             </div>
           </li>
@@ -257,15 +256,6 @@
       <?php } ?>
       <hr class="sidebar-divider d-none d-md-block">
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-unlock-alt"></i>
-          <span>Ubah Password</span></a>
-      </li>
-
-      <hr class="sidebar-divider d-none d-md-block">
-
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
@@ -311,14 +301,6 @@
               <a class="dropdown-item" href="#">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                 Profile
-              </a>
-              <a class="dropdown-item" href="#">
-                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                Settings
-              </a>
-              <a class="dropdown-item" href="#">
-                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Activity Log
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">

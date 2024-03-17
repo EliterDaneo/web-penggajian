@@ -183,4 +183,10 @@ class AllModel extends CI_model
       return FALSE;
     }
   }
+
+  //update password
+  public function GantiPassword($table, $data, $id)
+  {
+    $this->db->update($table, $data, $id);
+  }
 }
