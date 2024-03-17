@@ -9,7 +9,8 @@ class DataTransport extends CI_Controller
 
     if ($this->session->userdata('role') != 1) {
       $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!');
-      redirect('welcome');
+      $this->session->sess_destroy(); //
+      redirect('Error');
     }
   }
 

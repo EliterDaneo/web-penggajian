@@ -7,9 +7,12 @@ class DataGaji extends CI_Controller
   {
     parent::__construct();
 
-    if ($this->session->userdata('role') != 1) {
-      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!');
-      redirect('welcome');
+    $role = $this->session->userdata('role');
+
+    if ($role != 1 && $role != 3) { // Check if user role is not 1 or 2
+      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!'); // Set flashdata error message
+      $this->session->sess_destroy(); //
+      redirect('Error'); // Redirect to welcome page
     }
   }
 

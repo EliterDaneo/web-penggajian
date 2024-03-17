@@ -10,7 +10,8 @@ class DataGukar extends CI_Controller
 
     if ($role != 1 && $role != 2) { // Check if user role is not 1 or 2
       $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!'); // Set flashdata error message
-      redirect('welcome'); // Redirect to welcome page
+      $this->session->sess_destroy(); //
+      redirect('Error'); // Redirect to welcome page
     }
   }
 
