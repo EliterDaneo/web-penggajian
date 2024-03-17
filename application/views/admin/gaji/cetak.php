@@ -13,6 +13,8 @@
     body {
       font-family: Arial;
       color: black;
+      padding: 0;
+      margin: 0;
     }
   </style>
 </head>
@@ -54,6 +56,7 @@
     <thead>
       <tr>
         <th>No</th>
+        <th>BULAN</th>
         <th>NBM</th>
         <th>NAMA </th>
         <th>JABATAN</th>
@@ -63,10 +66,12 @@
         <th>TJ. JABATAN</th>
         <th>TJ. JABATAN WALI KELAS</th>
         <th>TJ. JABATAN GURU EKSTRA</th>
-        <th>TJ. LAINNYA</th>
+        <th>TJ. KEHADIRAN</th>
+        <th>TJ. ANAK</th>
+        <th>TJ. PANGAN</th>
+        <th>TJ. KELEBIHAN JAM</th>
         <th>POTONGAN</th>
         <th>TOTAL TERIMA</th>
-        <th>NOMOR REKENING</th>
       </tr>
     </thead>
     <tbody>
@@ -75,6 +80,9 @@
         <tr>
           <td>
             <?= $no++ ?>
+          </td>
+          <td>
+            <?= $bulantahun ?>
           </td>
           <td>
             <?= $t->nbm ?>
@@ -106,18 +114,25 @@
             <!-- error code -->
           </td>
           <td>Rp.
-            <?= number_format($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran, 0, ',', '.') ?>
+            <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
+          </td>
+          <td>Rp.
+            <?= number_format($t->tunjangan_anak, 0, ',', '.') ?>
+          </td>
+          <td>Rp.
+            <?= number_format($t->tunjangan_pangan, 0, ',', '.') ?>
+          </td>
+          <td>Rp.
+            <?= number_format($t->kelebihan_jam * 25000, 0, ',', '.') ?>
           </td>
           <td>Rp.
             <?= number_format($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban, 0, ',', '.') ?>
           </td>
           <td><b>Rp.
-              <?= number_format(($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran) - ($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban), 0, ',', '.') ?>
+              <?= number_format(($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran) + ($t->kelebihan_jam * 25000) - ($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban), 0, ',', '.') ?>
             </b>
           </td>
-          <td>
-            <?= $t->no_rekening ?>
-          </td>
+
         </tr>
       <?php endforeach; ?>
     </tbody>

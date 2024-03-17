@@ -30,7 +30,7 @@ class DataTransport extends CI_Controller
       $bulantahun = $bulan . $tahun;
     }
 
-    $data['transport'] = $this->db->query("SELECT tbl_transport.*, tbl_pegawai.nama_pegawai, tbl_pegawai.jenis_kelamin, tbl_jabatan.nama_jabatan, tbl_jabatan.tunjangan_jabatan, tbl_golongan.nama_golongan, tbl_golongan.tunjangan_golongan, tbl_transport.tunjangan_kehadiran, tbl_transport.jumlah_potongan, tbl_transport.total_tunjangan, tbl_ekstra.nama_ekstra, tbl_ekstra.tunjangan_ekstra, tbl_walikelas.tunjangan_walikelas,tbl_walikelas.tunjangan_walikelas, tbl_pegawai.jabatan_wali_kelas, tbl_pegawai.jabatan_guru_ekstra, tbl_pegawai.no_rekening, tbl_transport.bpjs_kesehatan, tbl_transport.dplk, tbl_transport.angsuran_bank, tbl_transport.angsuran_koperasi_gukar, tbl_transport.simpanan_koperasi_gukar, tbl_transport.belanja_koperasi_gukar, tbl_transport.iuran_anggota_muhammadiyah, tbl_transport.bon_sekolah, tbl_transport.bon_koperasi_gukar, tbl_transport.sosial, tbl_transport.angsuran_bank_mini, tbl_transport.tabungan_bingkisan, tbl_transport.infaq_bulanan, tbl_transport.infaq_qurban, tbl_transport.tabungan_kurban, tbl_transport.tunjangan_anak, tbl_transport.tunjangan_pangan, tbl_transport.kelebihan_jam_mengajar
+    $data['transport'] = $this->db->query("SELECT tbl_transport.*, tbl_pegawai.nama_pegawai, tbl_pegawai.jenis_kelamin, tbl_jabatan.nama_jabatan, tbl_jabatan.tunjangan_jabatan, tbl_golongan.nama_golongan, tbl_golongan.tunjangan_golongan, tbl_transport.tunjangan_kehadiran, tbl_transport.jumlah_potongan, tbl_transport.total_tunjangan, tbl_ekstra.nama_ekstra, tbl_ekstra.tunjangan_ekstra, tbl_walikelas.tunjangan_walikelas,tbl_walikelas.tunjangan_walikelas, tbl_pegawai.jabatan_wali_kelas, tbl_pegawai.jabatan_guru_ekstra, tbl_pegawai.no_rekening, tbl_transport.bpjs_kesehatan, tbl_transport.dplk, tbl_transport.angsuran_bank, tbl_transport.angsuran_koperasi_gukar, tbl_transport.simpanan_koperasi_gukar, tbl_transport.belanja_koperasi_gukar, tbl_transport.iuran_anggota_muhammadiyah, tbl_transport.bon_sekolah, tbl_transport.bon_koperasi_gukar, tbl_transport.sosial, tbl_transport.angsuran_bank_mini, tbl_transport.tabungan_bingkisan, tbl_transport.infaq_bulanan, tbl_transport.infaq_qurban, tbl_transport.tabungan_kurban, tbl_transport.tunjangan_anak, tbl_transport.tunjangan_pangan, tbl_pegawai.kelebihan_jam
 			FROM tbl_transport
 			INNER JOIN tbl_pegawai ON tbl_transport.nbm= tbl_pegawai.nbm
 			INNER JOIN tbl_jabatan ON tbl_pegawai.jabatan = tbl_jabatan.nama_jabatan
@@ -75,7 +75,6 @@ class DataTransport extends CI_Controller
             'tabungan_kurban' => $post['tabungan_kurban'][$key],
             'tunjangan_anak' => $post['tunjangan_anak'][$key],
             'tunjangan_pangan' => $post['tunjangan_pangan'][$key],
-            'kelebihan_jam_mengajar' => $post['kelebihan_jam_mengajar'][$key],
           );
         }
       }
@@ -150,7 +149,6 @@ class DataTransport extends CI_Controller
           $tabungan_kurban = $worksheet->getCellByColumnAndRow(20, $row)->getValue();
           $tunjangan_anak = $worksheet->getCellByColumnAndRow(21, $row)->getValue();
           $tunjangan_pangan = $worksheet->getCellByColumnAndRow(22, $row)->getValue();
-          $kelebihan_jam_mengajar = $worksheet->getCellByColumnAndRow(23, $row)->getValue();
 
           $data[] = array(
             'bulan' => $bulan,
@@ -176,7 +174,6 @@ class DataTransport extends CI_Controller
             'tabungan_kurban' => $tabungan_kurban,
             'tunjangan_anak' => $tunjangan_anak,
             'tunjangan_pangan' => $tunjangan_pangan,
-            'kelebihan_jam_mengajar' => $kelebihan_jam_mengajar,
           );
         }
       }

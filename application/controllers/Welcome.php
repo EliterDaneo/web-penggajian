@@ -85,6 +85,7 @@ class Welcome extends CI_Controller
 	public function logout()
 	{
 		$this->session->sess_destroy();
+		$this->session->set_flashdata('info', 'Happy a nice day ❤');
 		redirect('welcome');
 	}
 }

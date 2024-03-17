@@ -29,6 +29,23 @@ class DataGukar extends CI_Controller
     $this->form_validation->set_rules('no_rekening', 'no_rekening', 'required');
     $this->form_validation->set_rules('email', 'email', 'required');
     $this->form_validation->set_rules('password', 'password', 'required');
+    $this->form_validation->set_rules('kelebihan_jam', 'kelebihan_jam', 'required');
+  }
+  public function _ruless()
+  {
+    $this->form_validation->set_rules('nbm', 'nbm', 'required');
+    $this->form_validation->set_rules('nama_pegawai', 'nama_pegawai', 'required');
+    $this->form_validation->set_rules('jabatan', 'jabatan', 'required');
+    $this->form_validation->set_rules('golongan', 'golongan', 'required');
+    $this->form_validation->set_rules('jabatan_wali_kelas', 'jabatan_wali_kelas', 'required');
+    $this->form_validation->set_rules('jabatan_guru_ekstra', 'jabatan_guru_ekstra', 'required');
+    $this->form_validation->set_rules('jenis_kelamin', 'jenis_kelamin', 'required');
+    $this->form_validation->set_rules('alamat', 'alamat', 'required');
+    $this->form_validation->set_rules('no_hp', 'no_hp', 'required');
+    $this->form_validation->set_rules('role', 'role', 'required');
+    $this->form_validation->set_rules('no_rekening', 'no_rekening', 'required');
+    $this->form_validation->set_rules('email', 'email', 'required');
+    $this->form_validation->set_rules('kelebihan_jam', 'kelebihan_jam', 'required');
   }
 
   public function index()
@@ -87,6 +104,7 @@ class DataGukar extends CI_Controller
           $no_rekening = $worksheet->getCellByColumnAndRow(11, $row)->getValue();
           $email = $worksheet->getCellByColumnAndRow(12, $row)->getValue();
           $password = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
+          $kelebihan_jam = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
 
           $data[] = array(
             'nbm' => $nbm,
@@ -103,6 +121,7 @@ class DataGukar extends CI_Controller
             'no_rekening' => $no_rekening,
             'email' => $email,
             'password' => $password,
+            'kelebihan_jam' => $kelebihan_jam,
           );
         }
       }
@@ -151,6 +170,7 @@ class DataGukar extends CI_Controller
       $no_rekening = $this->input->post('no_rekening');
       $email = $this->input->post('email');
       $password = md5($this->input->post('password'));
+      $kelebihan_jam = $this->input->post('kelebihan_jam');
       $foto = $_FILES['foto']['name'];
       if ($foto = '') {
       } else {
@@ -179,6 +199,7 @@ class DataGukar extends CI_Controller
         'no_rekening' => $no_rekening,
         'email' => $email,
         'password' => $password,
+        'kelebihan_jam' => $kelebihan_jam,
       );
 
       $this->AllModel->insert_data_gukar($data, 'tbl_pegawai');
@@ -207,7 +228,7 @@ class DataGukar extends CI_Controller
 
   public function Update()
   {
-    $this->_rules();
+    $this->_ruless();
     if ($this->form_validation->run() == FALSE) {
       $this->Edit();
     } else {
@@ -224,7 +245,7 @@ class DataGukar extends CI_Controller
       $role = $this->input->post('role');
       $no_rekening = $this->input->post('no_rekening');
       $email = $this->input->post('email');
-      $password = md5($this->input->post('password'));
+      $kelebihan_jam = $this->input->post('kelebihan_jam');
       $foto = $_FILES['foto']['name'];
       if ($foto) {
         $config['upload_path'] = './asset/img/photos';
@@ -251,7 +272,7 @@ class DataGukar extends CI_Controller
         'role' => $role,
         'no_rekening' => $no_rekening,
         'email' => $email,
-        'password' => $password,
+        'kelebihan_jam' => $kelebihan_jam,
       );
 
       $where = array(

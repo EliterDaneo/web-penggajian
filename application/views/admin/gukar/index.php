@@ -41,6 +41,7 @@
               <th>No HP</th>
               <th>ROLE</th>
               <th>NO REKENING</th>
+              <th>KELEBIHAN JAM</th>
               <th>AKSI</th>
             </tr>
           </thead>
@@ -101,6 +102,9 @@
                 </td>
                 <td>
                   <?= $j->no_rekening ?>
+                </td>
+                <td>
+                  <?= $j->kelebihan_jam ?>
                 </td>
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">

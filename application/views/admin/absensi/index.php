@@ -195,7 +195,7 @@
                     <?php echo number_format($t->tunjangan_pangan, 0, ',', '.') ?>
                   </td>
                   <td>Rp.
-                    <?php echo number_format($t->kelebihan_jam_mengajar, 0, ',', '.') ?>
+                    <?php echo number_format($t->kelebihan_jam * 25000, 0, ',', '.') ?>
                   </td>
                   <td><b>Rp.
                       <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>

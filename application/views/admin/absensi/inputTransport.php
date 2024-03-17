@@ -112,7 +112,6 @@
                 <th>TABUNGAN KURBAN</th>
                 <th>TUNJANGAN ANAK</th>
                 <th>TUNJANGAN PANGAN</th>
-                <th>KELEBIHAN JAM MENGAJAR</th>
                 <th>TUNJANGAN TRANSPORT</th>
               </tr>
             </thead>
@@ -192,9 +191,6 @@
                   </td>
                   <td>
                     <input type="number" name="tunjangan_pangan[]" class="form-control" value="0">
-                  </td>
-                  <td>
-                    <input type="number" name="kelebihan_jam_mengajar[]" class="form-control" value="0">
                   </td>
                   <td>
                     <input type="number" name="tunjangan_kehadiran[]" class="form-control" value="0">

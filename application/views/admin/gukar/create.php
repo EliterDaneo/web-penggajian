@@ -136,17 +136,24 @@
               <?= form_error('no_rekening', '<div class="text-small text-danger"></div>') ?>
             </div>
           </div>
-          <div class=" col-sm-6">
+          <div class=" col-sm-4">
             <div class="form-group">
               <label>Email</label>
               <input type="email" class="form-control" name="email" placeholder="Enter No Email...">
               <?= form_error('email', '<div class="text-small text-danger"></div>') ?>
             </div>
           </div>
-          <div class=" col-sm-6">
+          <div class=" col-sm-4">
             <div class="form-group">
               <label>Password</label>
               <input type="text" class="form-control" name="password" placeholder="Enter No Password...">
+              <?= form_error('password', '<div class="text-small text-danger"></div>') ?>
+            </div>
+          </div>
+          <div class=" col-sm-4">
+            <div class="form-group">
+              <label>Kelebihan Jam</label>
+              <input type="number" class="form-control" name="kelebihan_jam" placeholder="Enter Kelebihan Jam...">
               <?= form_error('password', '<div class="text-small text-danger"></div>') ?>
             </div>
           </div>

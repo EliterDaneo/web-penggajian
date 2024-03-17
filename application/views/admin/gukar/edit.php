@@ -97,7 +97,7 @@
               <div class="form-group">
                 <label>Jenis Kelamin</label>
                 <select name="jenis_kelamin" id="" class="form-control">
-                  <option value=" <?= $e->jenis_kelamin ?>" selected>
+                  <option value="<?= $e->jenis_kelamin ?>" selected>
                     <?= $e->jenis_kelamin ?>
                   </option>
                   <option value="L">Laki - Laki</option>
@@ -109,8 +109,8 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Alamat</label>
-                <textarea type="text" class="form-control" name="alamat" placeholder="Enter alamat...">
-                              <?= $e->alamat ?></textarea>
+                <textarea type="text" class="form-control" name="alamat"
+                  placeholder="Enter alamat..."><?= $e->alamat ?></textarea>
                 <?= form_error('alamat', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
@@ -163,7 +163,7 @@
                 <?= form_error('no_rekening', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
-            <div class=" col-sm-6">
+            <div class=" col-sm-8">
               <div class="form-group">
                 <label>Email</label>
                 <input type="email" class="form-control" name="email" placeholder="Enter Email..."
@@ -171,11 +171,11 @@
                 <?= form_error('email', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
-            <div class=" col-sm-6">
+            <div class=" col-sm-4">
               <div class="form-group">
-                <label>Password</label>
-                <input type="text" class="form-control" name="password" placeholder="Enter Password..."
-                  value="<?= $e->password ?>">
+                <label>Kelebihan Jam</label>
+                <input type="text" class="form-control" name="kelebihan_jam" placeholder="Enter Password..."
+                  value="<?= $e->kelebihan_jam ?>">
                 <?= form_error('password', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
