@@ -61,7 +61,7 @@
           <?php if (count($gaji) > 0) { ?>
             <a target="_blank" href="<?= base_url('admin/DataGaji/CetakGaji?bulan=' . $bulan), '$tahun=' . $tahun ?>"
               class="btn btn-success ml-3"><i class="fas fa-print"></i> Cetak Gaji</a>
-            <a target="_blank" href="<?= base_url('admin/DataGaji/ExportExcel?bulan=' . $bulan . '&tahun=' . $tahun) ?>"
+            <a target="_blank" href="<?= base_url('admin/DataGaji/ExportExcel?bulan=' . $bulan), '&tahun=' . $tahun ?>"
               class="btn btn-info ml-3"><i class="fas fa-file-excel"></i> Export Excel</a>
           <?php } else { ?>
             <button class="btn btn-success ml-3" type="button" data-toggle="modal" data-target="#gaji"><i
@@ -127,6 +127,7 @@
                 <th>TJ. KELEBIHAN JAM</th>
                 <th>POTONGAN</th>
                 <th>TOTAL TERIMA</th>
+                <th>NO REKENING</th>
               </tr>
             </thead>
             <tbody>
@@ -187,8 +188,11 @@
                     <?= number_format($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban, 0, ',', '.') ?>
                   </td>
                   <td><b>Rp.
-                      <?= number_format(($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran) + ($t->kelebihan_jam * 25000) + ($t->tmt * 25000) - ($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban), 0, ',', '.') ?>
+                      <?= number_format(($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran) + ($t->kelebihan_jam * 25000) + ($t->tmt * 50000) - ($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban), 0, ',', '.') ?>
                     </b>
+                  </td>
+                  <td>
+                    <?= $t->no_rekening ?>
                   </td>
 
                 </tr>
