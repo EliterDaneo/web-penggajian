@@ -181,7 +181,7 @@ class LaporanGaji extends CI_Controller
       $objPHPExcel->getActiveSheet()->setCellValue('AA' . $row, $gaji->kelebihan_jam * 25000);
       $objPHPExcel->getActiveSheet()->setCellValue('AB' . $row, $gaji->tunjangan_kehadiran);
       $objPHPExcel->getActiveSheet()->setCellValue('AC' . $row, $gaji->tunjangan_golongan + $gaji->tunjangan_jabatan + $gaji->tunjangan_walikelas + $gaji->tunjangan_ekstra + $gaji->tunjangan_kehadiran + $gaji->tunjangan_anak + $gaji->tunjangan_pangan + ($gaji->kelebihan_jam * 25000) + ($gaji->tmt * 50000));
-      $objPHPExcel->getActiveSheet()->setCellValue('AC' . $row, $gaji->tabungan_kurban + $gaji->bpjs_kesehatan + $gaji->dplk + $gaji->angsuran_bank + $gaji->angsuran_koperasi_gukar + $gaji->simpanan_koperasi_gukar + $gaji->belanja_koperasi_gukar + $gaji->iuran_anggota_muhammadiyah + $gaji->bon_sekolah + $gaji->bon_koperasi_gukar + $gaji->sosial + $gaji->angsuran_bank_mini + $gaji->tabungan_bingkisan + $gaji->infaq_bulanan + $gaji->infaq_qurban);
+      $objPHPExcel->getActiveSheet()->setCellValue('AD' . $row, $gaji->tabungan_kurban + $gaji->bpjs_kesehatan + $gaji->dplk + $gaji->angsuran_bank + $gaji->angsuran_koperasi_gukar + $gaji->simpanan_koperasi_gukar + $gaji->belanja_koperasi_gukar + $gaji->iuran_anggota_muhammadiyah + $gaji->bon_sekolah + $gaji->bon_koperasi_gukar + $gaji->sosial + $gaji->angsuran_bank_mini + $gaji->tabungan_bingkisan + $gaji->infaq_bulanan + $gaji->infaq_qurban);
 
       $row++;
     }
