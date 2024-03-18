@@ -181,17 +181,9 @@
             </div>
             <div class=" col-sm-4">
               <div class="form-group">
-                <label for="">TMT</label>
-                <select name="tmt" id="" class="form-control">
-                  <option value="<?= $j->nama_tmt ?>" selected>
-                    <?= $j->nama_tmt ?>
-                  </option>
-                  <?php foreach ($tmt as $j): ?>
-                    <option value="<?= $j->nama_tmt ?>">
-                      <?= $j->nama_tmt ?>
-                    </option>
-                  <?php endforeach; ?>
-                </select>
+                <label>TMT Masuk</label>
+                <input type="number" class="form-control" name="tmt" value="<?= $e->tmt ?>"
+                  placeholder="Enter TMT Masuk...">
                 <?= form_error('tmt', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>

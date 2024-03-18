@@ -62,7 +62,7 @@
         <th>JABATAN</th>
         <th>GOLONGAN</th>
         <th>JENIS KELAMIN</th>
-        <th>TJ. GOLONGAN</th>
+        <th>GAJI POKOK</th>
         <th>TJ. JABATAN</th>
         <th>TJ. JABATAN WALI KELAS</th>
         <th>TJ. JABATAN GURU EKSTRA</th>

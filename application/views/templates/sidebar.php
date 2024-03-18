@@ -80,7 +80,6 @@
               <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Daftar Jabatan</a>
               <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Daftar Ekstra</a>
               <a class="collapse-item" href="<?= base_url('admin/DataWaliKelas') ?>">Daftar Wali Kelas</a>
-              <a class="collapse-item" href="<?= base_url('admin/DataTMT') ?>">Data TMT</a>
             </div>
         </li>
 
@@ -166,20 +165,10 @@
               </div>
           </li>
 
-          <!-- Nav Item - Utilities Collapse Menu -->
           <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-              aria-expanded="true" aria-controls="collapseUtilities">
-              <i class="fas fa-money-check"></i>
-              <span>Traksaksi</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Data Sensitif</h6>
-                <a class="collapse-item" href="<?= base_url('admin/DataTransport') ?>">Data Transport & <br>Tunjangan &
-                  <br>Potongan</a>
-              </div>
-            </div>
+            <a class="nav-link" href="<?= base_url('sdm/DataGaji') ?>">
+              <i class="fas fa-money-bill-wave"></i>
+              <span>Slip Gaji</span></a>
           </li>
       <?php } else if ($this->session->userdata('role') == 3) { ?>
             <!-- Divider -->
@@ -230,6 +219,11 @@
                   <a class="collapse-item" href="<?= base_url('admin/LaporanGaji/SlipGaji') ?>">Slip Gaji</a>
                 </div>
               </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('bendahara/DataGaji') ?>">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>Slip Gaji</span></a>
             </li>
       <?php } else { ?>
             <!-- Divider -->
