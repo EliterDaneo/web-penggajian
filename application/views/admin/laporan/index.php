@@ -11,8 +11,7 @@
       Filter Bulan Dan Tahun
     </div>
     <div class="card-body">
-      <form class="form-inline" action="<?= base_url('admin/LaporanGaji/CetakLaporanGaji') ?>" target="_blank"
-        method="post">
+    <form class="form-inline">
         <div class="form-group mb-3 ml-3">
           <label for="bulan">Bulan : </label>
           <select class="form-control ml-3" name="bulan" id="bulan">
@@ -44,11 +43,8 @@
             <?php } ?>
           </select>
         </div>
-
         <div class="form-group mb-3 ml-auto">
           <button type="submit" class="btn btn-primary ml-3"><i class="fas fa-print"></i> Laporan Gaji</button>
-          <a href="<?= base_url('admin/Laporangaji/ExportExcel') ?>" class="btn btn-success ml-3"><i
-              class="fas fa-file-excel"></i> Cetak Laporan</a>
         </div>
       </form>
     </div>
