@@ -56,7 +56,7 @@
           }
           ?>
             <a target="_blank" href="<?= base_url('admin/LaporanGaji/CetakLaporanGaji?bulan=' . $bulan), '$tahun=' . $tahun ?>"
-              class="btn btn-success ml-3"><i class="fas fa-print" data-target="#gaji"></i> Laporan Gaji</a>
+              class="btn btn-success ml-3"><i class="fas fa-print"></i> Laporan Gaji</a>
             <a target="_blank" href="<?= base_url('admin/LaporanGaji/ExportLaporanGaji?bulan=' . $bulan . '&tahun=' . $tahun) ?>"
               class="btn btn-info ml-3"><i class="fas fa-file-excel" data-target="#gaji"></i> Export Excel</a>
         </div>
