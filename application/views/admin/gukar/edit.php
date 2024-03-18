@@ -163,7 +163,7 @@
                 <?= form_error('no_rekening', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
-            <div class=" col-sm-8">
+            <div class=" col-sm-4">
               <div class="form-group">
                 <label>Email</label>
                 <input type="email" class="form-control" name="email" placeholder="Enter Email..."
@@ -177,6 +177,22 @@
                 <input type="text" class="form-control" name="kelebihan_jam" placeholder="Enter Password..."
                   value="<?= $e->kelebihan_jam ?>">
                 <?= form_error('password', '<div class="text-small text-danger"></div>') ?>
+              </div>
+            </div>
+            <div class=" col-sm-4">
+              <div class="form-group">
+                <label for="">TMT</label>
+                <select name="tmt" id="" class="form-control">
+                  <option value="<?= $j->nama_tmt ?>" selected>
+                    <?= $j->nama_tmt ?>
+                  </option>
+                  <?php foreach ($tmt as $j): ?>
+                    <option value="<?= $j->nama_tmt ?>">
+                      <?= $j->nama_tmt ?>
+                    </option>
+                  <?php endforeach; ?>
+                </select>
+                <?= form_error('tmt', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
           </div>

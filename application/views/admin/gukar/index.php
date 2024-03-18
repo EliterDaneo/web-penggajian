@@ -27,6 +27,7 @@
               <th>NBM</th>
               <th>Nama </th>
               <th>Jabatan</th>
+              <th>TMT</th>
               <th>Golongan</th>
               <th>Jabatan Wali Kelas</th>
               <th>Jabatan Guru Ekstra</th>
@@ -56,6 +57,9 @@
                 </td>
                 <td>
                   <?= $j->jabatan ?>
+                </td>
+                <td>
+                  <?= $j->tmt ?>
                 </td>
                 <td>
                   <?= $j->golongan ?>,

@@ -31,8 +31,8 @@
             <div class="form-group">
               <label for="">Jabatan</label>
               <select name="jabatan" id="" class="form-control">
-                <option value="" selected> >-- Pilih Jawabatan --< </option>
-                    <?php foreach ($jabatan as $j): ?>
+                <option value="" selected>Pilih Jawabatan</option>
+                <?php foreach ($jabatan as $j): ?>
                   <option value="<?= $j->nama_jabatan ?>">
                     <?= $j->nama_jabatan ?>
                   </option>
@@ -45,8 +45,8 @@
             <div class="form-group">
               <label for="">Golongan</label>
               <select name="golongan" id="" class="form-control">
-                <option value="" selected> >-- Pilih Golongan --< </option>
-                    <?php foreach ($golongan as $j): ?>
+                <option value="" selected>Pilih Golongan</option>
+                <?php foreach ($golongan as $j): ?>
                   <option value="<?= $j->nama_golongan ?>">
                     <?= $j->nama_golongan ?>
                   </option>
@@ -59,8 +59,8 @@
             <div class="form-group">
               <label for="">Jabatan Wali Kelas</label>
               <select name="jabatan_wali_kelas" id="" class="form-control">
-                <option value="" selected> >-- Pilih Jabatan Wali Kelas --< </option>
-                    <?php foreach ($walikelas as $j): ?>
+                <option value="" selected>Pilih Jabatan Wali Kelas</option>
+                <?php foreach ($walikelas as $j): ?>
                   <option value="<?= $j->nama_walikelas ?>">
                     <?= $j->nama_walikelas ?>
                   </option>
@@ -73,8 +73,8 @@
             <div class="form-group">
               <label for="">Jabatan Guru Ekstra</label>
               <select name="jabatan_guru_ekstra" id="" class="form-control">
-                <option value="" selected> >-- Pilih Jabatan - Guru Ekstra --< </option>
-                    <?php foreach ($ekstra as $j): ?>
+                <option value="" selected>Pilih Jabatan - Guru Ekstra</option>
+                <?php foreach ($ekstra as $j): ?>
                   <option value="<?= $j->nama_ekstra ?>">
                     <?= $j->nama_ekstra ?>
                   </option>
@@ -87,7 +87,7 @@
             <div class="form-group">
               <label for="">Jenis Kelamin</label>
               <select name="jenis_kelamin" id="" class="form-control">
-                <option value="" selected> >-- Pilih Jenis Kelamin --< </option>
+                <option value="" selected>Pilih Jenis Kelamin</option>
                 <option value="L">Laki - Laki</option>
                 <option value="P">Perempuan</option>
               </select>
@@ -113,7 +113,7 @@
             <div class="form-group">
               <label for="">Role</label>
               <select name="role" id="" class="form-control">
-                <option value="" selected> >-- Pilih Role --< </option>
+                <option value="" selected>Pilih Role</option>
                 <option value="1">Administrator</option>
                 <option value="4">Gukar</option>
                 <option value="3">Keungan</option>
@@ -136,25 +136,39 @@
               <?= form_error('no_rekening', '<div class="text-small text-danger"></div>') ?>
             </div>
           </div>
-          <div class=" col-sm-4">
+          <div class=" col-sm-3">
             <div class="form-group">
               <label>Email</label>
               <input type="email" class="form-control" name="email" placeholder="Enter No Email...">
               <?= form_error('email', '<div class="text-small text-danger"></div>') ?>
             </div>
           </div>
-          <div class=" col-sm-4">
+          <div class=" col-sm-3">
             <div class="form-group">
               <label>Password</label>
               <input type="text" class="form-control" name="password" placeholder="Enter No Password...">
               <?= form_error('password', '<div class="text-small text-danger"></div>') ?>
             </div>
           </div>
-          <div class=" col-sm-4">
+          <div class=" col-sm-3">
             <div class="form-group">
               <label>Kelebihan Jam</label>
               <input type="number" class="form-control" name="kelebihan_jam" placeholder="Enter Kelebihan Jam...">
-              <?= form_error('password', '<div class="text-small text-danger"></div>') ?>
+              <?= form_error('kelebihan_jam', '<div class="text-small text-danger"></div>') ?>
+            </div>
+          </div>
+          <div class=" col-sm-3">
+            <div class="form-group">
+              <label for="">TMT</label>
+              <select name="tmt" id="" class="form-control">
+                <option value="" selected>Pilih TMT - Guru & Karyawan</option>
+                <?php foreach ($tmt as $j): ?>
+                  <option value="<?= $j->nama_tmt ?>">
+                    <?= $j->nama_tmt ?>
+                  </option>
+                <?php endforeach; ?>
+              </select>
+              <?= form_error('tmt', '<div class="text-small text-danger"></div>') ?>
             </div>
           </div>
         </div>
