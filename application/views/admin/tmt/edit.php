@@ -11,22 +11,22 @@
       <h3>Masukan Data dengan Benar</h3>
     </div>
     <div class="card-body">
-      <?php foreach ($walikelas as $e): ?>
-        <form class="user" action="<?= base_url('admin/DataWaliKelas/Update') ?>" method="POST">
+      <?php foreach ($tmt as $e): ?>
+        <form class="user" action="<?= base_url('admin/DataTMT/Update') ?>" method="POST">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <input type="hidden" class="form-control form-control-user" name="id" value="<?= $e->id ?>">
-                <input type="text" class="form-control" name="nama_walikelas" placeholder="Enter Nama Gololang..."
-                  value="<?= $e->nama_walikelas ?>">
-                <?= form_error('nama_walikelas', '<div class="text-small text-danger"></div>') ?>
+                <input type="text" class="form-control" name="nama_tmt" placeholder="Enter Nama Gololang..."
+                  value="<?= $e->nama_tmt ?>">
+                <?= form_error('nama_tmt', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control " name="tunjangan_walikelas" placeholder="Enter tunjangan..."
-                  value="<?= $e->tunjangan_walikelas ?>">
-                <?= form_error('tunjangan_walikelas', '<div class="text-small text-danger"></div>') ?>
+                <input type="text" class="form-control " name="tunjangan_tmt" placeholder="Enter tunjangan..."
+                  value="<?= $e->tunjangan_tmt ?>">
+                <?= form_error('tunjangan_tmt', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
           </div>

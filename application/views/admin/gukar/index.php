@@ -104,8 +104,7 @@
                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                     <a href="<?= base_url('admin/DataGukar/Edit/' . $j->id) ?>" class="btn btn-primary
                     btn-sm"><i class="fas fa-edit"></i></a>
-                    <a onclick="return confirm('Apakah anda yakin ingin menghapus data <?= $j->nama_pegawai ?>')"
-                      href="<?= base_url('admin/DataGukar/Destroy/' . $j->id) ?>" class="btn btn-danger"><i
+                    <a href="<?= base_url('admin/DataGukar/Destroy/' . $j->id) ?>" class="btn btn-danger btn-delete"><i
                         class="fas fa-trash"></i></a>
                   </div>
                 </td>

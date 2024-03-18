@@ -121,6 +121,7 @@
                 <th>TABUNGAN KURBAN</th>
                 <th>TUNJANGAN ANAK</th>
                 <th>TUNJANGAN PANGAN</th>
+                <th>TUNJANGAN PASANGAN</th>
                 <th>KELEBIAN JAM MENGAJAR</th>
                 <th>TJ. TRANSPORT</th>
               </tr>
@@ -194,6 +195,9 @@
                   </td>
                   <td>Rp.
                     <?php echo number_format($t->tunjangan_pangan, 0, ',', '.') ?>
+                  </td>
+                  <td>Rp.
+                    <?php echo number_format($t->tunjangan_pasangan, 0, ',', '.') ?>
                   </td>
                   <td>Rp.
                     <?php echo number_format($t->kelebihan_jam * 25000, 0, ',', '.') ?>

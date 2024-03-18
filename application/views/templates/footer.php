@@ -29,34 +29,6 @@
   </div>
 </div>
 
-<div class="modal fade" id="import" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="form-group mt-3">
-        <form action="<?= base_url('admin/DataGukarFix/ImportDataGukar') ?>" method="post"
-          enctype="multipart/form-data">
-          <div class="col-sm-12">
-            <div class="form-group">
-              <input type="file" class="form-control" name="file" accept=".xls, .xlsx" required">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-primary" type="submit">Import Data</button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
 <div class="modal fade" id="importTransport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">

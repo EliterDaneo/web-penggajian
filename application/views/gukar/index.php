@@ -15,6 +15,9 @@
             <th>NBM</th>
             <th>NAMA </th>
             <th>JABATAN</th>
+            <th>GOLONGAN</th>
+            <th>WALI KELAS</th>
+            <th>GURU EKSTRA</th>
             <th>JENIS KELAMIN</th>
             <th>TJ. GOLONGAN</th>
             <th>TJ. JABATAN</th>
@@ -37,6 +40,7 @@
             <th>TABUNGAN KURBAN</th>
             <th>TUNJANGAN ANAK</th>
             <th>TUNJANGAN PANGAN</th>
+            <th>TUNJANGAN PASANGAN</th>
             <th>KELEBIAN JAM MENGAJAR</th>
             <th>TUNJANGAN TRANSPORT</th>
             <th>TOTAL TUNJANGAN</th>
@@ -63,6 +67,15 @@
               </td>
               <td>
                 <?= $t->nama_jabatan ?>
+              </td>
+              <td>
+                <?= $t->nama_golongan ?>
+              </td>
+              <td>
+                <?= $t->nama_walikelas ?>
+              </td>
+              <td>
+                <?= $t->nama_ekstra ?>
               </td>
               <td>
                 <?= $t->jenis_kelamin ?>
@@ -136,12 +149,16 @@
                 <?php echo number_format($t->kelebihan_jam * 25000, 0, ',', '.') ?>
               </td>
               <td><b>Rp.
+                  <?= number_format($t->tunjangan_pasangan, 0, ',', '.') ?>
+                </b>
+              </td>
+              <td><b>Rp.
                   <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
                 </b>
               </td>
               <td><b>
                   Rp.
-                  <?php echo number_format($t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran + $t->tunjangan_anak + $t->tunjangan_pangan + ($t->kelebihan_jam * 25000), 0, ',', '.') ?>
+                  <?php echo number_format($t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_pasangan, 0, ',', '.') ?>
                 </b>
               </td>
               <td><b>
@@ -150,7 +167,7 @@
                 </b>
               </td>
               <td><b>Rp.
-                  <?= number_format(($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran) + ($t->kelebihan_jam * 25000) - ($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban), 0, ',', '.') ?>
+                  <?= number_format(($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran + $t->tunjangan_pasangan) + ($t->kelebihan_jam * 25000) - ($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban), 0, ',', '.') ?>
                 </b>
               </td>
               <td>

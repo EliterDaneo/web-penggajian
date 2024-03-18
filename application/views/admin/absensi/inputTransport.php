@@ -112,6 +112,7 @@
                 <th>TABUNGAN KURBAN</th>
                 <th>TUNJANGAN ANAK</th>
                 <th>TUNJANGAN PANGAN</th>
+                <th>TUNJANGAN PASANGAN</th>
                 <th>TUNJANGAN TRANSPORT</th>
               </tr>
             </thead>
@@ -191,6 +192,9 @@
                   </td>
                   <td>
                     <input type="number" name="tunjangan_pangan[]" class="form-control" value="0">
+                  </td>
+                  <td>
+                    <input type="number" name="tunjangan_pasangan[]" class="form-control" value="0">
                   </td>
                   <td>
                     <input type="number" name="tunjangan_kehadiran[]" class="form-control" value="0">

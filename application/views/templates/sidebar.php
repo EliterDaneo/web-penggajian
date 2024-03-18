@@ -80,6 +80,7 @@
               <a class="collapse-item" href="<?= base_url('admin/DataJabatan') ?>">Daftar Jabatan</a>
               <a class="collapse-item" href="<?= base_url('admin/DataEkstra') ?>">Daftar Ekstra</a>
               <a class="collapse-item" href="<?= base_url('admin/DataWaliKelas') ?>">Daftar Wali Kelas</a>
+              <a class="collapse-item" href="<?= base_url('admin/DataTMT') ?>">Data TMT</a>
             </div>
         </li>
 

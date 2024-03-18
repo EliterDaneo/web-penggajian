@@ -44,7 +44,7 @@
                   <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-primary btn-sm" href="<?= base_url('admin/DataJabatan/Edit/' . $j->id) ?>"><i
                         class="fas fa-edit"></i></a>
-                    <a class="btn btn-danger btn-sm" href="<?= base_url('admin/DataJabatan/Destroy/' . $j->id) ?>"><i
+                    <a class="btn btn-danger btn-sm btn-delete" href="<?= base_url('admin/DataJabatan/Destroy/' . $j->id) ?>"><i
                         class="fas fa-trash"></i></a>
                   </div>
                 </td>

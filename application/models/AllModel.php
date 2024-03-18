@@ -189,4 +189,34 @@ class AllModel extends CI_model
   {
     $this->db->update($table, $data, $id);
   }
+
+  //TMT
+  public function get_data_tmt()
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_tmt');
+    $this->db->order_by('tbl_tmt.nama_tmt', 'ASC');
+    return $this->db->get()->result();
+  }
+
+  public function insert_batch_tmt($table = null, $data = array())
+  {
+    $this->db->insert_batch($table, $data);
+  }
+
+  public function insert_data_tmt($data, $table)
+  {
+    $this->db->insert($table, $data);
+  }
+
+  public function update_data_tmt($table, $data, $where)
+  {
+    $this->db->update($table, $data, $where);
+  }
+
+  public function delete_data_tmt($where, $table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
+  }
 }
