@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Mar 2024 pada 14.35
+-- Waktu pembuatan: 18 Mar 2024 pada 05.34
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 5.6.40
 
@@ -39,7 +39,7 @@ CREATE TABLE `tbl_ekstra` (
 --
 
 INSERT INTO `tbl_ekstra` (`id`, `nama_ekstra`, `tunjangan_ekstra`) VALUES
-(1, 'Guru Ekstra', 135000),
+(1, 'Guru Ekstra', 130000),
 (2, 'Bukan Guru Ekstra', 0);
 
 -- --------------------------------------------------------
@@ -660,11 +660,10 @@ INSERT INTO `tbl_jabatan` (`id`, `nama_jabatan`, `tunjangan_jabatan`) VALUES
 (1, 'Kepala Sekolah', 2500000),
 (2, 'WKS', 1080000),
 (3, 'Koordinator Keuangan', 560000),
-(4, 'KA TU', 560000),
 (5, 'Staf WKS', 480000),
 (6, 'Kabag Keuangan', 480000),
 (7, 'KPK', 337500),
-(8, 'Kabag TU', 337500),
+(8, 'Kabag TU', 560000),
 (9, 'Sekbag Keuangan', 337500),
 (10, 'Bendahara Bos', 337500),
 (11, 'Bosda', 245000),
@@ -683,7 +682,8 @@ INSERT INTO `tbl_jabatan` (`id`, `nama_jabatan`, `tunjangan_jabatan`) VALUES
 (24, 'Wali Kelas', 130000),
 (25, 'Koordinator Satpam', 100000),
 (26, 'Koordinator Caraka', 100000),
-(28, 'Tidak Ada', 0);
+(28, 'Tidak Ada', 0),
+(29, 'Sekbag TU', 337500);
 
 -- --------------------------------------------------------
 
@@ -696,6 +696,7 @@ CREATE TABLE `tbl_pegawai` (
   `nbm` varchar(255) DEFAULT NULL,
   `nama_pegawai` varchar(255) DEFAULT NULL,
   `jabatan` varchar(255) DEFAULT NULL,
+  `tmt` varchar(255) DEFAULT NULL,
   `golongan` varchar(255) DEFAULT NULL,
   `jabatan_wali_kelas` varchar(255) DEFAULT NULL,
   `jabatan_guru_ekstra` varchar(255) DEFAULT NULL,
@@ -714,12 +715,12 @@ CREATE TABLE `tbl_pegawai` (
 -- Dumping data untuk tabel `tbl_pegawai`
 --
 
-INSERT INTO `tbl_pegawai` (`id`, `nbm`, `nama_pegawai`, `jabatan`, `golongan`, `jabatan_wali_kelas`, `jabatan_guru_ekstra`, `jenis_kelamin`, `alamat`, `no_hp`, `foto`, `role`, `no_rekening`, `email`, `password`, `kelebihan_jam`) VALUES
-(251, '331006', 'Andriyan Suryadiningrat', 'WKS', 'Tidak Ada', 'Wali Kelas', 'Guru Ekstra', '       L', '                                                                                                                                                                      Wonosobo', '89212121', 'undraw_profile.svg', 1, 123, 'admin@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 10),
-(308, '838656', 'Setya Rahmawanto, S.E, M.M.', 'Kepala Sekolah', 'IIC25', 'Wali Kelas', 'Bukan Guru Ekstra', '   L', '                                                                                Wonosobo', '89212121', 'undraw_profile.svg', 2, 123, 'ks@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 10),
-(313, '1188171', 'Sri Agus Suratina, S.Pd.', 'Staf WKS', 'IA24', 'Bukan Wali Kelas', 'Bukan Guru Ekstra', '    L', '                                                                    Wonosobo', '89212121', 'undraw_profile.svg', 3, 123, 'tina@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 11),
-(322, '1034905', 'Tri Sumarni, S.Pd', 'Kabid BKK', 'IA0', 'Wali Kelas', 'Guru Ekstra', '  L', '                                                  Wonosobo', '89212121', 'undraw_profile.svg', 4, 123, 'sumarni@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 11),
-(334, '1234', 'Alip  Sasmito', 'Tidak Ada', 'IA24', 'Bukan Wali Kelas', 'Bukan Guru Ekstra', '    L', 'Wonosobo', '087738833548', 'undraw_rocket.svg', 4, 12321321, 'alim@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 0);
+INSERT INTO `tbl_pegawai` (`id`, `nbm`, `nama_pegawai`, `jabatan`, `tmt`, `golongan`, `jabatan_wali_kelas`, `jabatan_guru_ekstra`, `jenis_kelamin`, `alamat`, `no_hp`, `foto`, `role`, `no_rekening`, `email`, `password`, `kelebihan_jam`) VALUES
+(251, '331006', 'Andriyan Suryadiningrat', 'KPK', '10', 'Tidak Ada', 'Wali Kelas', 'Guru Ekstra', '       L', '                                                                                                                                                                      Wonosobo', '89212121', 'undraw_profile.svg', 1, 123, 'admin@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 10),
+(308, '838656', 'Setya Rahmawanto, S.E, M.M.', 'Kepala Sekolah', NULL, 'IIC25', 'Wali Kelas', 'Bukan Guru Ekstra', '   L', '                                                                                Wonosobo', '89212121', 'undraw_profile.svg', 2, 123, 'ks@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 10),
+(313, '1188171', 'Sri Agus Suratina, S.Pd.', 'Staf WKS', NULL, 'IA24', 'Bukan Wali Kelas', 'Bukan Guru Ekstra', '    L', '                                                                    Wonosobo', '89212121', 'undraw_profile.svg', 3, 123, 'tina@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 11),
+(322, '1034905', 'Tri Sumarni, S.Pd', 'Kabid BKK', NULL, 'IA0', 'Wali Kelas', 'Guru Ekstra', '  L', '                                                  Wonosobo', '89212121', 'undraw_profile.svg', 4, 123, 'sumarni@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 11),
+(334, '1234', 'Alip  Sasmito', 'Tidak Ada', NULL, 'IA24', 'Bukan Wali Kelas', 'Bukan Guru Ekstra', '    L', 'Wonosobo', '087738833548', 'undraw_rocket.svg', 4, 12321321, 'alim@admin.com', 'e10adc3949ba59abbe56e057f20f883e', 0);
 
 -- --------------------------------------------------------
 
@@ -775,19 +776,19 @@ CREATE TABLE `tbl_transport` (
   `jumlah_potongan` bigint(20) DEFAULT NULL,
   `tunjangan_anak` bigint(20) DEFAULT NULL,
   `tunjangan_pangan` bigint(20) DEFAULT NULL,
-  `total_tunjangan` bigint(20) DEFAULT NULL
+  `tunjangan_pasangan` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_transport`
 --
 
-INSERT INTO `tbl_transport` (`id`, `bulan`, `nbm`, `nama_pegawai`, `nama_jabatan`, `jenis_kelamin`, `tunjangan_kehadiran`, `bpjs_kesehatan`, `dplk`, `angsuran_bank`, `angsuran_koperasi_gukar`, `simpanan_koperasi_gukar`, `belanja_koperasi_gukar`, `iuran_anggota_muhammadiyah`, `bon_sekolah`, `bon_koperasi_gukar`, `sosial`, `angsuran_bank_mini`, `tabungan_bingkisan`, `infaq_bulanan`, `infaq_qurban`, `tabungan_kurban`, `jumlah_potongan`, `tunjangan_anak`, `tunjangan_pangan`, `total_tunjangan`) VALUES
-(95, '032024', '1234', 'Alip Sasmito', 'Tidak Ada', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 67500, 45000, 45000, 45000, 135000),
-(96, '032024', '331006', 'Andriyan Suryadiningrat', 'Ka Lab', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 67500, 45000, 45000, 45000, 135000),
-(97, '032024', '838656', 'Setya Rahmawanto, S.E, M.M.', 'Kepala Sekolah', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 675000, 45000, 45000, 45000, 135000),
-(98, '032024', '1188171', 'Sri Agus Suratina, S.Pd.', 'Staf WKS', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 675000, 45000, 45000, 45000, 135000),
-(99, '032024', '1034905', 'Tri Sumarni, S.Pd', 'Kabid BKK', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 675000, 45000, 45000, 45000, 135000),
+INSERT INTO `tbl_transport` (`id`, `bulan`, `nbm`, `nama_pegawai`, `nama_jabatan`, `jenis_kelamin`, `tunjangan_kehadiran`, `bpjs_kesehatan`, `dplk`, `angsuran_bank`, `angsuran_koperasi_gukar`, `simpanan_koperasi_gukar`, `belanja_koperasi_gukar`, `iuran_anggota_muhammadiyah`, `bon_sekolah`, `bon_koperasi_gukar`, `sosial`, `angsuran_bank_mini`, `tabungan_bingkisan`, `infaq_bulanan`, `infaq_qurban`, `tabungan_kurban`, `jumlah_potongan`, `tunjangan_anak`, `tunjangan_pangan`, `tunjangan_pasangan`) VALUES
+(95, '032024', '1234', 'Alip Sasmito', 'Tidak Ada', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 67500, 45000, 45000, 45000, NULL),
+(96, '032024', '331006', 'Andriyan Suryadiningrat', 'Ka Lab', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 67500, 45000, 45000, 45000, NULL),
+(97, '032024', '838656', 'Setya Rahmawanto, S.E, M.M.', 'Kepala Sekolah', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 675000, 45000, 45000, 45000, NULL),
+(98, '032024', '1188171', 'Sri Agus Suratina, S.Pd.', 'Staf WKS', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 675000, 45000, 45000, 45000, NULL),
+(99, '032024', '1034905', 'Tri Sumarni, S.Pd', 'Kabid BKK', 'L', 100000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 45000, 675000, 45000, 45000, 45000, NULL),
 (100, '022024', '1234', 'Alip Sasmito', 'Tidak Ada', 'L', 100000, 45000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 45000, 45000, NULL, 45000, 45000, NULL),
 (101, '022024', '331006', 'Andriyan Suryadiningrat', 'Ka Lab', 'L', 100000, 45000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 45000, 45000, NULL, 45000, 45000, NULL),
 (102, '022024', '838656', 'Setya Rahmawanto, S.E, M.M.', 'Kepala Sekolah', 'L', 100000, 45000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 45000, 45000, NULL, 45000, 45000, NULL),
@@ -811,7 +812,7 @@ CREATE TABLE `tbl_walikelas` (
 --
 
 INSERT INTO `tbl_walikelas` (`id`, `nama_walikelas`, `tunjangan_walikelas`) VALUES
-(1, 'Wali Kelas', 145000),
+(1, 'Wali Kelas', 130000),
 (2, 'Bukan Wali Kelas', 0);
 
 --
@@ -880,7 +881,7 @@ ALTER TABLE `tbl_golongan`
 -- AUTO_INCREMENT untuk tabel `tbl_jabatan`
 --
 ALTER TABLE `tbl_jabatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pegawai`
@@ -904,7 +905,7 @@ ALTER TABLE `tbl_transport`
 -- AUTO_INCREMENT untuk tabel `tbl_walikelas`
 --
 ALTER TABLE `tbl_walikelas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
