@@ -163,7 +163,7 @@ class DataEkstra extends CI_Controller
       'id' => $id
     );
     $this->AllModel->delete_data_ekstra($where, 'tbl_ekstra');
-    $this->session->set_flashdata('error', 'Data Berhasil DiHapus!');
+    $this->session->set_flashdata('success', 'Data Berhasil DiHapus!');
     redirect('admin/DataEkstra');
   }
 }

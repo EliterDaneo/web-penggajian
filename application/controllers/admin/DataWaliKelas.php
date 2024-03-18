@@ -81,7 +81,7 @@ class DataWaliKelas extends CI_Controller
       $this->session->set_flashdata('success', 'Data Berhasil Diimport!');
       redirect('admin/DataWaliKelas');
     } else {
-      $this->session->set_flashdata('error', 'Data Berhasil Diimport!');
+      $this->session->set_flashdata('success', 'Data Berhasil Diimport!');
       redirect('admin/DataWaliKelas');
     }
   }
@@ -163,7 +163,7 @@ class DataWaliKelas extends CI_Controller
       'id' => $id
     );
     $this->AllModel->delete_data_walikelas($where, 'tbl_walikelas');
-    $this->session->set_flashdata('error', 'Data Berhasil DiHapus!');
+    $this->session->set_flashdata('success', 'Data Berhasil DiHapus!');
     redirect('admin/DataWaliKelas');
   }
 }

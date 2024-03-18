@@ -11,7 +11,7 @@
       <h3>Masukan Data dengan Benar</h3>
     </div>
     <div class="card-body">
-      <?php foreach ($golongan as $e): ?>
+      <?php foreach ($ekstra as $e): ?>
         <form class="user" action="<?= base_url('admin/DataEkstra/Update') ?>" method="POST">
           <div class="row">
             <div class="col-sm-6">

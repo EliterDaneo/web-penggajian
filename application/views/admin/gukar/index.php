@@ -5,14 +5,8 @@
   <h1 class="h3 mb-4 text-gray-800">
     <?= $title ?>
   </h1>
-  <?php if ($this->session->flashdata('success')): ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <?php echo $this->session->flashdata('success'); ?>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  <?php endif; ?>
+
+  <div class="flash-data" data-flashdata="<?= $this->session->flashdata('success') ?>"></div>
 
   <div class="card shadow mb-4">
     <div class="card-header py-3">

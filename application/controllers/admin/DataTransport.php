@@ -184,7 +184,7 @@ class DataTransport extends CI_Controller
       $this->session->set_flashdata('success', 'Data Berhasil Diimport!');
       redirect('admin/DataTransport');
     } else {
-      $this->session->set_flashdata('error', 'Data Berhasil Diimport!');
+      $this->session->set_flashdata('success', 'Data Berhasil Diimport!');
       redirect('admin/DataTransport');
     }
   }
