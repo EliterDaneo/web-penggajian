@@ -3,14 +3,16 @@ defined('BASEPATH') or exit ('No direct script access allowed');
 class DataTransport extends CI_Controller
 {
 
-  public function __construct()
+   public function __construct()
   {
     parent::__construct();
 
-    if ($this->session->userdata('role') != 1) {
-      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!');
+    $role = $this->session->userdata('role');
+
+    if ($role != 1 && $role != 3) { // Check if user role is not 1 or 2
+      $this->session->set_flashdata('error', 'Anda Tidak Mempunyai Akses! Silahkan Login Sesuai Role!!!'); // Set flashdata error message
       $this->session->sess_destroy(); //
-      redirect('Error');
+      redirect('Error'); // Redirect to welcome page
     }
   }
 

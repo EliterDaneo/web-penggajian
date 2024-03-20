@@ -171,7 +171,7 @@
                 </b>
               </td>
               <td>
-                <a href="<?= base_url('gukar/DataGaji/CetakGaji/' . $t->id) ?>" class="btn btn-primary" target="_blank"><i
+                <a href="<?= base_url('bendahara/DataGaji/CetakGaji/' . $t->id) ?>" class="btn btn-primary" target="_blank"><i
                     class="fas fa-print"></i>Cetak</a>
               </td>
             </tr>
