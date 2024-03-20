@@ -163,7 +163,7 @@
                 <?= form_error('no_rekening', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
-            <div class=" col-sm-4">
+            <div class=" col-sm-3">
               <div class="form-group">
                 <label>Email</label>
                 <input type="email" class="form-control" name="email" placeholder="Enter Email..."
@@ -171,7 +171,7 @@
                 <?= form_error('email', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
-            <div class=" col-sm-4">
+            <div class=" col-sm-3">
               <div class="form-group">
                 <label>Kelebihan Jam</label>
                 <input type="text" class="form-control" name="kelebihan_jam" placeholder="Enter Password..."
@@ -179,12 +179,20 @@
                 <?= form_error('password', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
-            <div class=" col-sm-4">
+            <div class=" col-sm-3">
               <div class="form-group">
                 <label>TMT Masuk</label>
                 <input type="number" class="form-control" name="tmt" value="<?= $e->tmt ?>"
                   placeholder="Enter TMT Masuk...">
                 <?= form_error('tmt', '<div class="text-small text-danger"></div>') ?>
+              </div>
+            </div>
+            <div class=" col-sm-3">
+              <div class="form-group">
+                <label>Aspirasi</label>
+                <input type="number" class="form-control" name="aspirasi" value="<?= $e->aspirasi ?>"
+                  placeholder="Enter Aspirasi...">
+                <?= form_error('aspirasi', '<div class="text-small text-danger"></div>') ?>
               </div>
             </div>
           </div>

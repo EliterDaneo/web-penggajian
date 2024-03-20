@@ -32,6 +32,7 @@ class DataGukar extends CI_Controller
     $this->form_validation->set_rules('password', 'password', 'required');
     $this->form_validation->set_rules('kelebihan_jam', 'kelebihan_jam', 'required');
     $this->form_validation->set_rules('tmt', 'tmt', 'required');
+    $this->form_validation->set_rules('aspirasi', 'aspirasi', 'required');
   }
   public function _ruless()
   {
@@ -49,6 +50,7 @@ class DataGukar extends CI_Controller
     $this->form_validation->set_rules('email', 'email', 'required');
     $this->form_validation->set_rules('kelebihan_jam', 'kelebihan_jam', 'required');
     $this->form_validation->set_rules('tmt', 'tmt', 'required');
+    $this->form_validation->set_rules('aspirasi', 'aspirasi', 'required');
   }
 
   public function index()
@@ -109,6 +111,7 @@ class DataGukar extends CI_Controller
           $password = $worksheet->getCellByColumnAndRow(13, $row)->getValue();
           $kelebihan_jam = $worksheet->getCellByColumnAndRow(14, $row)->getValue();
           $tmt = $worksheet->getCellByColumnAndRow(15, $row)->getValue();
+          $aspirasi = $worksheet->getCellByColumnAndRow(16, $row)->getValue();
 
           $data[] = array(
             'nbm' => $nbm,
@@ -127,6 +130,7 @@ class DataGukar extends CI_Controller
             'password' => md5($password),
             'kelebihan_jam' => $kelebihan_jam,
             'tmt' => $tmt,
+            'aspirasi' => $aspirasi,
           );
         }
       }
@@ -149,7 +153,6 @@ class DataGukar extends CI_Controller
       'golongan' => $this->AllModel->get_data_golongan(),
       'ekstra' => $this->AllModel->get_data_ekstra(),
       'walikelas' => $this->AllModel->get_data_walikelas(),
-      'tmt' => $this->AllModel->get_data_tmt(),
     ];
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar');
@@ -178,6 +181,7 @@ class DataGukar extends CI_Controller
       $password = md5($this->input->post('password'));
       $kelebihan_jam = $this->input->post('kelebihan_jam');
       $tmt = $this->input->post('tmt');
+      $aspirasi = $this->input->post('aspirasi');
       $foto = $_FILES['foto']['name'];
       if ($foto = '') {
       } else {
@@ -208,6 +212,7 @@ class DataGukar extends CI_Controller
         'password' => $password,
         'kelebihan_jam' => $kelebihan_jam,
         'tmt' => $tmt,
+        'aspirasi' => $aspirasi,
       );
 
       $this->AllModel->insert_data_gukar($data, 'tbl_pegawai');
@@ -255,6 +260,7 @@ class DataGukar extends CI_Controller
       $email = $this->input->post('email');
       $kelebihan_jam = $this->input->post('kelebihan_jam');
       $tmt = $this->input->post('tmt');
+      $aspirasi = $this->input->post('aspirasi');
       $foto = $_FILES['foto']['name'];
       if ($foto) {
         $config['upload_path'] = './asset/img/photos';
@@ -283,6 +289,7 @@ class DataGukar extends CI_Controller
         'email' => $email,
         'kelebihan_jam' => $kelebihan_jam,
         'tmt' => $tmt,
+        'aspirasi' => $aspirasi,
       );
 
       $where = array(

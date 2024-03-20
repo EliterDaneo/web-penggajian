@@ -61,6 +61,7 @@
         <th>JENIS KELAMIN</th>
         <th>GAJI POKOK</th>
         <th>TMT MASUK</th>
+        <th>ASPIRASI</th>
         <th>TJ. JABATAN</th>
         <th>TJ. JABATAN WALI KELAS</th>
         <th>TJ. JABATAN GURU EKSTRA</th>
@@ -116,6 +117,9 @@
           </td>
           <td>Rp.
             <?= number_format($t->tmt * 50000, 0, ',', '.') ?>
+          </td>
+          <td>Rp.
+            <?= number_format($t->aspirasi * 10000, 0, ',', '.') ?>
           </td>
           <td>Rp.
             <?= number_format($t->tunjangan_jabatan, 0, ',', '.') ?>

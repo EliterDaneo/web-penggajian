@@ -126,6 +126,7 @@
                 <th>TUNJANGAN PASANGAN</th>
                 <th>KELEBIAN JAM MENGAJAR</th>
                 <th>TJ. TRANSPORT</th>
+                <th>ASPIRASI</th>
               </tr>
             </thead>
             <tbody>
@@ -212,6 +213,10 @@
                   </td>
                   <td><b>Rp.
                       <?= number_format($t->tunjangan_kehadiran, 0, ',', '.') ?>
+                    </b>
+                  </td>
+                  <td><b>Rp.
+                      <?= number_format($t->aspirasi * 10000, 0, ',', '.') ?>
                     </b>
                   </td>
                 </tr>

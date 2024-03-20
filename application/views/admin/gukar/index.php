@@ -37,6 +37,7 @@
               <th>ROLE</th>
               <th>NO REKENING</th>
               <th>KELEBIHAN JAM</th>
+              <th>ASPIRASI</th>
               <th>AKSI</th>
             </tr>
           </thead>
@@ -103,6 +104,9 @@
                 </td>
                 <td>
                   <?= $j->kelebihan_jam ?>
+                </td>
+                <td>
+                  <?= $j->aspirasi ?>
                 </td>
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">

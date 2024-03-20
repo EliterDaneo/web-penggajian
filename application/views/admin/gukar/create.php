@@ -164,6 +164,13 @@
               <?= form_error('tmt', '<div class="text-small text-danger"></div>') ?>
             </div>
           </div>
+          <div class=" col-sm-3">
+            <div class="form-group">
+              <label>Aspirasi</label>
+              <input type="number" class="form-control" name="aspirasi" placeholder="Enter Aspirasi...">
+              <?= form_error('aspirasi', '<div class="text-small text-danger"></div>') ?>
+            </div>
+          </div>
         </div>
 
         <button type="submit" class="btn btn-primary btn-user">

@@ -87,6 +87,13 @@
         </th>
       </tr>
       <tr>
+        <th>2</th>
+        <td>Aspirasi : </td>
+        <th>Rp.
+          <?= number_format($c->aspirasi * 10000, 0, ',', '.') ?>
+        </th>
+      </tr>
+      <tr>
         <th>3</th>
         <td>Tunjangan Jabatan : </td>
         <th>Rp.
@@ -145,7 +152,7 @@
       <tr>
         <td colspan="2" style="text-align: right;">Diterima + Tunjangan : </td>
         <th>Rp.
-          <?= number_format($c->tunjangan_golongan + $c->tunjangan_pasangan + $c->tunjangan_jabatan + $c->tunjangan_walikelas + $c->tunjangan_ekstra + $c->tunjangan_kehadiran + $c->tunjangan_anak + $c->tunjangan_pangan + ($c->kelebihan_jam * 25000) + ($c->tmt * 50000), 0, ',', '.') ?>
+          <?= number_format(($c->tunjangan_anak + $c->tunjangan_pasangan + $c->tunjangan_pangan + $c->tunjangan_golongan + $c->tunjangan_jabatan + $c->tunjangan_walikelas + $c->tunjangan_ekstra + $c->tunjangan_kehadiran) + ($c->kelebihan_jam * 25000) + ($c->tmt * 50000) + ($c->aspirasi * 10000), 0, ',', '.') ?>
         </th>
       </tr>
     </table>
@@ -285,7 +292,7 @@
       <tr>
         <td colspan="2" style="text-align: right;">Total Gaji : </td>
         <th>Rp.
-          <?= number_format(($c->tunjangan_anak + $c->tunjangan_pasangan + $c->tunjangan_pangan + $c->tunjangan_golongan + $c->tunjangan_jabatan + $c->tunjangan_walikelas + $c->tunjangan_ekstra + $c->tunjangan_kehadiran) + ($c->kelebihan_jam * 25000) + ($c->tmt * 50000) - ($c->tabungan_kurban + $c->bpjs_kesehatan + $c->dplk + $c->angsuran_bank + $c->angsuran_koperasi_gukar + $c->simpanan_koperasi_gukar + $c->belanja_koperasi_gukar + $c->iuran_anggota_muhammadiyah + $c->bon_sekolah + $c->bon_koperasi_gukar + $c->sosial + $c->angsuran_bank_mini + $c->tabungan_bingkisan + $c->infaq_bulanan + $c->infaq_qurban), 0, ',', '.') ?>
+          <?= number_format(($c->tunjangan_anak + $c->tunjangan_pasangan + $c->tunjangan_pangan + $c->tunjangan_golongan + $c->tunjangan_jabatan + $c->tunjangan_walikelas + $c->tunjangan_ekstra + $c->tunjangan_kehadiran) + ($c->kelebihan_jam * 25000) + ($c->tmt * 50000) + ($c->aspirasi * 10000) - ($c->tabungan_kurban + $c->bpjs_kesehatan + $c->dplk + $c->angsuran_bank + $c->angsuran_koperasi_gukar + $c->simpanan_koperasi_gukar + $c->belanja_koperasi_gukar + $c->iuran_anggota_muhammadiyah + $c->bon_sekolah + $c->bon_koperasi_gukar + $c->sosial + $c->angsuran_bank_mini + $c->tabungan_bingkisan + $c->infaq_bulanan + $c->infaq_qurban), 0, ',', '.') ?>
         </th>
       </tr>
     </table>
