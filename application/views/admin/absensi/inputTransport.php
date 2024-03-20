@@ -110,6 +110,8 @@
                 <th>INFAQ BULANAN</th>
                 <th>INFAQ QURBAN</th>
                 <th>TABUNGAN KURBAN</th>
+                <th>BELANJA WAJIB KOPERASI</th>
+                <th>BELANJA WAJIB BC</th>
                 <th>TUNJANGAN ANAK</th>
                 <th>TUNJANGAN PANGAN</th>
                 <th>TUNJANGAN PASANGAN</th>
@@ -186,6 +188,12 @@
                   </td>
                   <td>
                     <input type="number" name="tabungan_kurban[]" class="form-control" value="0">
+                  </td>
+                  <td>
+                    <input type="number" name="belanja_wajib_koperasi[]" class="form-control" value="0">
+                  </td>
+                  <td>
+                    <input type="number" name="belanja_wajib_bc[]" class="form-control" value="0">
                   </td>
                   <td>
                     <input type="number" name="tunjangan_anak[]" class="form-control" value="0">

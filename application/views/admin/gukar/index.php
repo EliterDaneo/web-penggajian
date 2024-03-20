@@ -62,7 +62,7 @@
                   <?= $j->tmt ?>
                 </td>
                 <td>
-                  <?= $j->golongan ?>,
+                  <?= $j->golongan ?>
                 </td>
                 <td>
                   <?= $j->jabatan_wali_kelas ?>

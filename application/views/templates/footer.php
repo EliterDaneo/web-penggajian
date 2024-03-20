@@ -91,7 +91,7 @@
 <script src="<?= base_url('asset/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
 
 <!-- Page level custom scripts -->
-<script src="<?= base_url('asset/js/demo/datatables-demo.js') ?>"></script>
+<script src="<?= base_url('asset/js/datatables-demo.js') ?>"></script>
 
 <script src="<?= base_url('asset/js/sweetalert2.all.min.js') ?>"></script>
 <script src="<?= base_url('asset/js/my-script.js') ?>"></script>

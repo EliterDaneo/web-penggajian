@@ -31,7 +31,7 @@ class DataTransport extends CI_Controller
       $bulantahun = $bulan . $tahun;
     }
 
-    $data['transport'] = $this->db->query("SELECT tbl_transport.*, tbl_pegawai.nama_pegawai, tbl_pegawai.jenis_kelamin, tbl_jabatan.nama_jabatan, tbl_jabatan.tunjangan_jabatan, tbl_golongan.nama_golongan, tbl_golongan.tunjangan_golongan, tbl_transport.tunjangan_kehadiran, tbl_transport.jumlah_potongan, tbl_transport.tunjangan_pasangan, tbl_ekstra.nama_ekstra, tbl_ekstra.tunjangan_ekstra, tbl_walikelas.tunjangan_walikelas,tbl_walikelas.tunjangan_walikelas, tbl_pegawai.jabatan_wali_kelas, tbl_pegawai.jabatan_guru_ekstra, tbl_pegawai.no_rekening, tbl_transport.bpjs_kesehatan, tbl_transport.dplk, tbl_transport.angsuran_bank, tbl_transport.angsuran_koperasi_gukar, tbl_transport.simpanan_koperasi_gukar, tbl_transport.belanja_koperasi_gukar, tbl_transport.iuran_anggota_muhammadiyah, tbl_transport.bon_sekolah, tbl_transport.bon_koperasi_gukar, tbl_transport.sosial, tbl_transport.angsuran_bank_mini, tbl_transport.tabungan_bingkisan, tbl_transport.infaq_bulanan, tbl_transport.infaq_qurban, tbl_transport.tabungan_kurban, tbl_transport.tunjangan_anak, tbl_transport.tunjangan_pangan, tbl_pegawai.kelebihan_jam
+    $data['transport'] = $this->db->query("SELECT tbl_transport.*, tbl_pegawai.nama_pegawai, tbl_pegawai.jenis_kelamin, tbl_jabatan.nama_jabatan, tbl_jabatan.tunjangan_jabatan, tbl_golongan.nama_golongan, tbl_golongan.tunjangan_golongan, tbl_transport.tunjangan_kehadiran, tbl_transport.tunjangan_pasangan, tbl_ekstra.nama_ekstra, tbl_ekstra.tunjangan_ekstra, tbl_walikelas.tunjangan_walikelas,tbl_walikelas.tunjangan_walikelas, tbl_pegawai.jabatan_wali_kelas, tbl_pegawai.jabatan_guru_ekstra, tbl_pegawai.no_rekening, tbl_transport.bpjs_kesehatan, tbl_transport.dplk, tbl_transport.angsuran_bank, tbl_transport.angsuran_koperasi_gukar, tbl_transport.simpanan_koperasi_gukar, tbl_transport.belanja_koperasi_gukar, tbl_transport.iuran_anggota_muhammadiyah, tbl_transport.bon_sekolah, tbl_transport.bon_koperasi_gukar, tbl_transport.sosial, tbl_transport.angsuran_bank_mini, tbl_transport.tabungan_bingkisan, tbl_transport.infaq_bulanan, tbl_transport.infaq_qurban, tbl_transport.tabungan_kurban, tbl_transport.tunjangan_anak, tbl_transport.tunjangan_pangan, tbl_pegawai.kelebihan_jam, tbl_transport.belanja_wajib_bc, tbl_transport.belanja_wajib_koperasi
 			FROM tbl_transport
 			INNER JOIN tbl_pegawai ON tbl_transport.nbm= tbl_pegawai.nbm
 			INNER JOIN tbl_jabatan ON tbl_pegawai.jabatan = tbl_jabatan.nama_jabatan
@@ -74,6 +74,8 @@ class DataTransport extends CI_Controller
             'infaq_bulanan' => $post['infaq_bulanan'][$key],
             'infaq_qurban' => $post['infaq_qurban'][$key],
             'tabungan_kurban' => $post['tabungan_kurban'][$key],
+            'belanja_wajib_koperasi' => $post['belanja_wajib_koperasi'][$key],
+            'belanja_wajib_bc' => $post['belanja_wajib_bc'][$key],
             'tunjangan_anak' => $post['tunjangan_anak'][$key],
             'tunjangan_pangan' => $post['tunjangan_pangan'][$key],
             'tunjangan_pasangan' => $post['tunjangan_pasangan'][$key],
@@ -150,8 +152,10 @@ class DataTransport extends CI_Controller
           $infaq_qurban = $worksheet->getCellByColumnAndRow(19, $row)->getValue();
           $tabungan_kurban = $worksheet->getCellByColumnAndRow(20, $row)->getValue();
           $tunjangan_anak = $worksheet->getCellByColumnAndRow(21, $row)->getValue();
-          $tunjangan_pangan = $worksheet->getCellByColumnAndRow(22, $row)->getValue();
-          $tunjangan_pasangan = $worksheet->getCellByColumnAndRow(23, $row)->getValue();
+          $belanja_wajib_koperasi = $worksheet->getCellByColumnAndRow(22, $row)->getValue();
+          $belanja_wajib_bc = $worksheet->getCellByColumnAndRow(23, $row)->getValue();
+          $tunjangan_pangan = $worksheet->getCellByColumnAndRow(24, $row)->getValue();
+          $tunjangan_pasangan = $worksheet->getCellByColumnAndRow(25, $row)->getValue();
 
           $data[] = array(
             'bulan' => $bulan,
@@ -175,6 +179,8 @@ class DataTransport extends CI_Controller
             'infaq_bulanan' => $infaq_bulanan,
             'infaq_qurban' => $infaq_qurban,
             'tabungan_kurban' => $tabungan_kurban,
+            'belanja_wajib_koperasi' => $belanja_wajib_koperasi,
+            'belanja_wajib_bc' => $belanja_wajib_bc,
             'tunjangan_anak' => $tunjangan_anak,
             'tunjangan_pangan' => $tunjangan_pangan,
             'tunjangan_pasangan' => $tunjangan_pasangan,

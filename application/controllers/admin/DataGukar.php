@@ -124,7 +124,7 @@ class DataGukar extends CI_Controller
             'foto' => $foto,
             'no_rekening' => $no_rekening,
             'email' => $email,
-            'password' => $password,
+            'password' => md5($password),
             'kelebihan_jam' => $kelebihan_jam,
             'tmt' => $tmt,
           );

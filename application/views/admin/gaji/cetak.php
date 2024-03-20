@@ -13,8 +13,13 @@
     body {
       font-family: Arial;
       color: black;
-      padding: 0;
-      margin: 0;
+    }
+
+    @media print {
+      @page {
+        size: landscape;
+        padding: auto;
+      }
     }
   </style>
 </head>
@@ -25,7 +30,8 @@
     <h2>Data Gaji Guru Karyawan</h2>
   </center>
 
-  <?php if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
+  <?php
+  if ((isset ($_GET['bulan']) && $_GET['bulan'] != '') && (isset ($_GET['tahun']) && $_GET['tahun'] != '')) {
     $bulan = $_GET['bulan'];
     $tahun = $_GET['tahun'];
     $bulantahun = $bulan . $tahun;
@@ -33,8 +39,8 @@
     $bulan = date('m');
     $tahun = date('Y');
     $bulantahun = $bulan . $tahun;
-  } ?>
-
+  }
+  ?>
   <table>
     <tr>
       <td>Bulan</td>
@@ -52,16 +58,14 @@
     </tr>
   </table>
 
-  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th>No</th>
-        <th>BULAN</th>
         <th>NBM</th>
         <th>NAMA </th>
         <th>JABATAN</th>
         <th>GOLONGAN</th>
-        <th>JENIS KELAMIN</th>
         <th>GAJI POKOK</th>
         <th>TJ. JABATAN</th>
         <th>TJ. JABATAN WALI KELAS</th>
@@ -72,6 +76,7 @@
         <th>TJ. KELEBIHAN JAM</th>
         <th>POTONGAN</th>
         <th>TOTAL TERIMA</th>
+        <th>NO REKENING</th>
       </tr>
     </thead>
     <tbody>
@@ -80,9 +85,6 @@
         <tr>
           <td>
             <?= $no++ ?>
-          </td>
-          <td>
-            <?= $bulantahun ?>
           </td>
           <td>
             <?= $t->nbm ?>
@@ -95,9 +97,6 @@
           </td>
           <td>
             <?= $t->nama_golongan ?>
-          </td>
-          <td>
-            <?= $t->jenis_kelamin ?>
           </td>
           <td>Rp.
             <?= number_format($t->tunjangan_golongan, 0, ',', '.') ?>
@@ -132,7 +131,9 @@
               <?= number_format(($t->tunjangan_anak + $t->tunjangan_pangan + $t->tunjangan_golongan + $t->tunjangan_jabatan + $t->tunjangan_walikelas + $t->tunjangan_ekstra + $t->tunjangan_kehadiran) + ($t->kelebihan_jam * 25000) - ($t->tabungan_kurban + $t->bpjs_kesehatan + $t->dplk + $t->angsuran_bank + $t->angsuran_koperasi_gukar + $t->simpanan_koperasi_gukar + $t->belanja_koperasi_gukar + $t->iuran_anggota_muhammadiyah + $t->bon_sekolah + $t->bon_koperasi_gukar + $t->sosial + $t->angsuran_bank_mini + $t->tabungan_bingkisan + $t->infaq_bulanan + $t->infaq_qurban), 0, ',', '.') ?>
             </b>
           </td>
-
+          <td>
+            <?= $t->no_rekening ?>
+          </td>
         </tr>
       <?php endforeach; ?>
     </tbody>
