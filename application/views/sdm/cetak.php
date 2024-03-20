@@ -251,6 +251,20 @@
         </th>
       </tr>
       <tr>
+        <th>16</th>
+        <td>Belanja Wajib Koperasi : </td>
+        <th>Rp.
+          <?= number_format($c->belanja_wajib_koperasi, 0, ',', '.') ?>
+        </th>
+      </tr>
+      <tr>
+        <th>17</th>
+        <td>Belanja Wajib BC : </td>
+        <th>Rp.
+          <?= number_format($c->belanja_wajib_bc, 0, ',', '.') ?>
+        </th>
+      </tr>
+      <tr>
         <td colspan="2" style="text-align: right;">Total Potongan : </td>
         <th>Rp.
           <?php echo number_format($c->tabungan_kurban + $c->bpjs_kesehatan + $c->dplk + $c->angsuran_bank + $c->angsuran_koperasi_gukar + $c->simpanan_koperasi_gukar + $c->belanja_koperasi_gukar + $c->iuran_anggota_muhammadiyah + $c->bon_sekolah + $c->bon_koperasi_gukar + $c->sosial + $c->angsuran_bank_mini + $c->tabungan_bingkisan + $c->infaq_bulanan + $c->infaq_qurban, 0, ',', '.') ?>
