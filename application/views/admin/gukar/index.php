@@ -31,7 +31,7 @@
               <th>Golongan</th>
               <th>Jabatan Wali Kelas</th>
               <th>Jabatan Guru Ekstra</th>
-              <th>Jenis Kelamain</th>
+              <th>Jenis Kelamin</th>
               <th>Alamat</th>
               <th>No HP</th>
               <th>ROLE</th>
@@ -73,7 +73,7 @@
                 </td>
                 <td>
                   <?php
-                  if ($j->jenis_kelamin == 'p') {
+                  if ($j->jenis_kelamin == 'P') {
                     echo "<span>Perempuan</span>";
                   } else {
                     echo "<span>Laki Laki</span>";

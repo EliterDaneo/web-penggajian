@@ -200,7 +200,7 @@ class LaporanGaji extends CI_Controller
 
     // Redirect output to a client’s web browser (Excel2007)
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment;filename="DataGaji.xlsx"');
+    header('Content-Disposition: attachment;filename="LaporanDataGaji.xlsx"');
     header('Cache-Control: max-age=0');
     header('Cache-Control: max-age=1');
     header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
