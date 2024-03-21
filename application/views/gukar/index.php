@@ -39,6 +39,8 @@
             <th>INFAQ BULANAN</th>
             <th>INFAQ QURBAN</th>
             <th>TABUNGAN KURBAN</th>
+            <th>BELANJA WAJIB KOPERASI</th>
+            <th>BELANJA WAJIB BC</th>
             <th>TUNJANGAN ANAK</th>
             <th>TUNJANGAN PANGAN</th>
             <th>TUNJANGAN PASANGAN</th>
@@ -142,6 +144,12 @@
               </td>
               <td>Rp.
                 <?php echo number_format($t->tabungan_kurban, 0, ',', '.') ?>
+              </td>
+              <td>Rp.
+                <?php echo number_format($t->belanja_wajib_koperasi, 0, ',', '.') ?>
+              </td>
+              <td>Rp.
+                <?php echo number_format($t->belanja_wajib_bc, 0, ',', '.') ?>
               </td>
               <td>Rp.
                 <?php echo number_format($t->tunjangan_anak, 0, ',', '.') ?>
